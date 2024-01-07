@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="254dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Auto" />
+
+            <Button
+                android:id="@+id/amp_note_auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amp Notes" />
+
+            <Button
+                android:id="@+id/speaker_note_auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Speaker Notes" />
+
+            <CheckBox
+                android:id="@+id/leave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Leave" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="432dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/tele_op"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Tele-Op" />
+
+            <Button
+                android:id="@+id/amp_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amp Notes" />
+
+            <Button
+                android:id="@+id/speaker_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Speaker Notes" />
+
+            <Button
+                android:id="@+id/amp_speaker_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Amplified Speaker Notes" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/on_stage"
+                    android:layout_width="194dp"
+                    android:layout_height="wrap_content"
+                    android:text="On Stage" />
+
+                <CheckBox
+                    android:id="@+id/on_stage_spotlit"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:text="On Stage (Spotlit)" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/trap_note"
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:text="Trap Note" />
+
+                <TextView
+                    android:id="@+id/spotlit_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="High Ring on pole over chain" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/endgame_human_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Endgame/Human Player" />
+
+    <Button
+        android:id="@+id/amps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amplifiers" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/co_op"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Coopertition" />
+
+            <CheckBox
+                android:id="@+id/park"
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Parked" />
+
+            <CheckBox
+                android:id="@+id/melody"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_weight="1"
+                android:text="Melody" />
+
+            <CheckBox
+                android:id="@+id/ensamble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ensamble" />
+
+            <CheckBox
+                android:id="@+id/harmony"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Harmony" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/loss"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:text="Loss" />
+
+            <RadioButton
+                android:id="@+id/tie"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:text="Tie" />
+
+            <RadioButton
+                android:id="@+id/win"
+                android:layout_width="81dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Win" />
+
+            <TextView
+                android:id="@+id/melody_desc"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="18(15 co-op) Notes" />
+
+            <TextView
+                android:id="@+id/ensamble_desc"
+                android:layout_width="93dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10 Stage Points            2 Onstage Robot" />
+
+            <TextView
+                android:id="@+id/harmony_desc"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Robot Same Chain" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
