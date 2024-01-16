@@ -1,4 +1,4 @@
-package com.example.cotcscoutingapp
+package com.example.cotcscouting
 
 import org.junit.Test
 

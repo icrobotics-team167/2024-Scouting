@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "COTC Scouting App"
+rootProject.name = "167 Scouting"
 include(":app")
+ 
