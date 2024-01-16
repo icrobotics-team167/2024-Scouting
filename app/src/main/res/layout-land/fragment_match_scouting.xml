@@ -33,12 +33,11 @@
                 android:layout_height="254dp"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:id="@+id/auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
                     android:text="@string/auto" />
 
                 <LinearLayout
@@ -47,50 +46,54 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/auto_amp_dec"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
-
-                    <EditText
+                        android:layout_width="75dp"
+                        android:text="@string/dec_button" />
+                    <TextView
+                        android:id="@+id/amp_note_auto_text"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/amp_notes"
+                        />
+                    <TextView
                         android:id="@+id/amp_note_auto"
-                        android:layout_width="154dp"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/amp_notes" />
-
+                         />
                     <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/auto_amp_inc"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:layout_width="75dp"
+                        android:text="@string/inc_button" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/auto_speaker_dec"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:layout_width="75dp"
+                        android:text="@string/dec_button" />
 
-                    <EditText
-                        android:id="@+id/speaker_note_auto"
-                        android:layout_width="156dp"
+                    <TextView
+                        android:id="@+id/speaker_note_auto_text"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/speaker_notes" />
-
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/speaker_note_auto"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
+                        />
+                    <Button
+                        android:id="@+id/auto_speaker_inc"
+                        android:layout_height="wrap_content"
+                        android:layout_width="75dp"
+                        android:text="@string/inc_button" />
                 </LinearLayout>
 
                 <CheckBox
@@ -99,12 +102,11 @@
                     android:layout_height="71dp"
                     android:text="@string/leave" />
 
-                <EditText
+                <TextView
                     android:id="@+id/endgame_human_player"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
                     android:text="@string/endgame_human_player" />
 
             </LinearLayout>
@@ -114,12 +116,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:id="@+id/tele_op"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="text"
                     android:text="@string/tele_op" />
 
                 <LinearLayout
@@ -128,25 +129,28 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button9"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tele_op_amp_dec"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:layout_width="75dp"
+                        android:text="@string/dec_button" />
 
-                    <EditText
-                        android:id="@+id/amp_note"
-                        android:layout_width="204dp"
+                    <TextView
+                        android:id="@+id/amp_note_tele_op_text"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/amp_notes"
                         />
+                    <TextView
+                        android:id="@+id/amp_note_tele_op"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        />
 
                     <Button
-                        android:id="@+id/button10"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tele_op_amp_inc"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:layout_width="75dp"
+                        android:text="@string/inc_button" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -159,9 +163,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:text="@string/dec_button" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/speaker_note"
                         android:layout_width="202dp"
                         android:layout_height="wrap_content"
@@ -172,7 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:text="@string/inc_button" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -185,9 +189,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:text="@string/dec_button" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/amp_speaker_note"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -198,7 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/button" />
+                        android:text="@string/inc_button" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -251,9 +255,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button" />
+                android:text="@string/dec_button" />
 
-            <EditText
+            <TextView
                 android:id="@+id/amps"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
@@ -264,7 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button" />
+                android:text="@string/inc_button" />
         </LinearLayout>
 
         <LinearLayout
@@ -274,8 +278,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_weight="1"
+                android:layout_height="48dp"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -318,7 +321,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
