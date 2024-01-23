@@ -74,6 +74,44 @@ class MatchScoutingFragment : Fragment()  {
             teleopAmpCount++
             binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
         }
+        var teleOpSpeakerCount = 0
+        binding.teleOpSpeakerDec?.setOnClickListener {
+            if(teleOpSpeakerCount > 0) {
+                teleOpSpeakerCount--
+            }
+            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+        }
+
+        binding.teleOpSpeakerInc?.setOnClickListener {
+            teleOpSpeakerCount++
+            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+        }
+
+        var ampSpeakerCount = 0
+        binding.ampSpeakerNoteDec?.setOnClickListener {
+            if(ampSpeakerCount > 0) {
+                ampSpeakerCount--
+            }
+            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
+        }
+
+        binding.ampSpeakerNoteInc?.setOnClickListener {
+            ampSpeakerCount++
+            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
+        }
+
+        var ampsCount = 0
+        binding.ampsDec?.setOnClickListener {
+            if(ampsCount > 0) {
+                ampsCount--
+            }
+            binding.amps?.text = ampsCount.toString()
+        }
+
+        binding.ampsInc?.setOnClickListener {
+            ampsCount++
+            binding.amps?.text = ampsCount.toString()
+        }
 
         return root
     }

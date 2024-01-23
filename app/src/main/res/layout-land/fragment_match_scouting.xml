@@ -151,6 +151,18 @@
                         android:layout_height="wrap_content"
                         android:layout_width="75dp"
                         android:text="@string/inc_button" />
+
+                    <Space
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/submit" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -159,23 +171,25 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button7"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tele_op_speaker_dec"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="75dp"
                         android:text="@string/dec_button" />
-
                     <TextView
-                        android:id="@+id/speaker_note"
-                        android:layout_width="202dp"
+                        android:id="@+id/tele_op_speaker_text"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/speaker_notes" />
-
+                        android:text="@string/speaker_notes"
+                        />
+                    <TextView
+                        android:id="@+id/tele_op_speaker"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        />
                     <Button
-                        android:id="@+id/button8"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tele_op_speaker_inc"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="75dp"
                         android:text="@string/inc_button" />
                 </LinearLayout>
 
@@ -185,23 +199,27 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button5"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/amp_speaker_note_dec"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/dec_button" />
 
                     <TextView
-                        android:id="@+id/amp_speaker_note"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/amp_speaker_note_text"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:text="@string/amplified_speaker_notes" />
 
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/amp_speaker_note"
+                        android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        />
+
+                    <Button
+                        android:id="@+id/amp_speaker_note_inc"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
                         android:text="@string/inc_button" />
                 </LinearLayout>
 
@@ -243,6 +261,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -251,23 +270,27 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button11"
-                android:layout_width="wrap_content"
+                android:id="@+id/amps_dec"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/dec_button" />
 
             <TextView
-                android:id="@+id/amps"
-                android:layout_width="150dp"
+                android:id="@+id/amps_text"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/amplifiers" />
 
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/amps"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                />
+
+            <Button
+                android:id="@+id/amps_inc"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
                 android:text="@string/inc_button" />
         </LinearLayout>
 

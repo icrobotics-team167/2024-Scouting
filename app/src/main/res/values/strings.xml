@@ -25,4 +25,5 @@
     <string name="_2_robot_same_chain">2 Robot Same Chain</string>
     <string name="dec_button">-</string>
     <string name="inc_button">+</string>
+    <string name="submit">Submit</string>
 </resources>
