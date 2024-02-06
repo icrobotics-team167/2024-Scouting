@@ -113,6 +113,20 @@ class MatchScoutingFragment : Fragment()  {
             binding.amps?.text = ampsCount.toString()
         }
 
+        var onStage = 0
+        binding.onStage?.setOnClickListener {
+            if(binding.onStage?.isChecked == true){
+                onStage = 1;
+            }
+            else {
+                onStage = 0
+            };
+        }
+
+        binding.submit?.setOnClickListener {
+            val submit_values = intArrayOf(autoAmpCount, autoSpeakerCount, teleopAmpCount, teleOpSpeakerCount, ampSpeakerCount, ampsCount, onStage)
+            System.out.println(onStage)
+        }
         return root
     }
 

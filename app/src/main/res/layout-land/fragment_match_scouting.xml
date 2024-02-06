@@ -50,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_width="75dp"
                         android:text="@string/dec_button" />
+
                     <TextView
                         android:id="@+id/amp_note_auto_text"
                         android:layout_width="100dp"
