@@ -1,13 +1,30 @@
+/*
+PIT SCOUTING QUESTIONS
+- Auto function + what area (Score)
+- Teleop function
+- Strategy
+- Endgame function (Hanging)
+- Hanging mechanisms
+- Drive train type
+- How they pick up notes
+- If can shoot where do you want to shoot (Against subwoofer, against podium, or anywhere)
+
+PIT SCOUT FORM PLANS
+- Misc questions
+- Auto questions
+- Teleop questions
+*/
+
 package com.example.cotcscouting
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cotcscouting.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
