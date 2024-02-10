@@ -1,19 +1,4 @@
-/*
-PIT SCOUTING QUESTIONS
-- Auto function + what area (Score)
-- Teleop function
-- Strategy
-- Endgame function (Hanging)
-- Hanging mechanisms
-- Drive train type
-- How they pick up notes
-- If can shoot where do you want to shoot (Against subwoofer, against podium, or anywhere)
 
-PIT SCOUT FORM PLANS
-- Misc questions
-- Auto questions
-- Teleop questions
-*/
 
 package com.example.cotcscouting
 
@@ -53,4 +38,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
 }
