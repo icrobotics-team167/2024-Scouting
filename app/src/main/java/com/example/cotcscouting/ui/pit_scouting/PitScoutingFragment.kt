@@ -67,22 +67,25 @@ class PitScoutingFragment : Fragment() {
             hasFocus : Boolean ->
 
             fun onFocusChange(v : View, hasFocus : Boolean) {
+                // if teamAnswerBox is equal to the text which was originally in the text box
                 if(teamnameAnswerBox.text.toString().equals(teamnameText.toString())) {
+                    // If teamnameAnswerBox is not focused, then reset teamnameAnswerBox to it's original text
                     if(!v.hasFocus()) {
                         teamnameAnswerBox.text = teamnameText
-                    } else {
+                    } else { // Since teamnameAnswerBox is now focused clear it so the text doesn't need to be cleared
                         teamnameAnswerBox.text.clear()
                     }
-                } else {
+                } else { // Since teamnameAnswerBox isn't equal to the text which was originally in the box TODO: I think cases where what's in the text box is "" can be dealt with prior to this else
+                    // If teamnameAnswerBox is blank, then reest teamnameAnswerBox to it's original text
                     if(teamnameAnswerBox.text.toString().equals("")) {
                         teamnameAnswerBox.text = teamnameText
-                    } else {
+                    } else { // Since teamnameAnswerBox isn't blank, save the current value in teamnameAnswerBox
                         teamnameAnswer = teamnameAnswerBox.text.toString()
                     }
                 }
             }
 
-            onFocusChange(v, hasFocus)
+            onFocusChange(v, hasFocus) // Run on change function
         }
 
         return root
