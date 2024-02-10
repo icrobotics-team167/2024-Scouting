@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.alliance_scouting.AllianceScoutingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/blue_alliance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/blue_alliance" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/blue_amps_dec"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dec_button" />
+
+                <TextView
+                    android:id="@+id/blue_amps_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amplifiers" />
+
+                <TextView
+                    android:id="@+id/blue_amps"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/blue_amps_inc"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/inc_button" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/blue_co_op"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/coopertition"
+                    tools:ignore="NestedWeights" />
+
+                <CheckBox
+                    android:id="@+id/blue_melody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/melody" />
+
+                <CheckBox
+                    android:id="@+id/blue_ensamble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ensamble" />
+
+                <CheckBox
+                    android:id="@+id/blue_harmony"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/harmony" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="119dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/blue_melody_desc"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_18_15_co_op_notes" />
+
+                <TextView
+                    android:id="@+id/blue_ensamble_desc"
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_10_stage_points_2_onstage_robot" />
+
+                <TextView
+                    android:id="@+id/blue_harmony_desc"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_2_robot_same_chain" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/red_alliance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Red Alliance" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/red_amps_dec"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dec_button" />
+
+                <TextView
+                    android:id="@+id/red_amps_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amplifiers" />
+
+                <TextView
+                    android:id="@+id/red_amps"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/red_amps_inc"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/inc_button" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/red_co_op"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/coopertition"
+                    tools:ignore="NestedWeights" />
+
+                <CheckBox
+                    android:id="@+id/red_melody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/melody" />
+
+                <CheckBox
+                    android:id="@+id/red_ensamble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ensamble" />
+
+                <CheckBox
+                    android:id="@+id/red_harmony"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/harmony" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="119dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/red_melody_desc"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_18_15_co_op_notes" />
+
+                <TextView
+                    android:id="@+id/red_ensamble_desc"
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_10_stage_points_2_onstage_robot" />
+
+                <TextView
+                    android:id="@+id/red_harmony_desc"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_2_robot_same_chain" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
