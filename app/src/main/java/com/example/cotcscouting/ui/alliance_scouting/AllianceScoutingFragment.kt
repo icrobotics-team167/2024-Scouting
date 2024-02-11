@@ -1,14 +1,11 @@
 package com.example.cotcscouting.ui.alliance_scouting
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.cotcscouting.R
+import androidx.fragment.app.Fragment
 import com.example.cotcscouting.databinding.FragmentAllianceScoutingBinding
-import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
 
 class AllianceScoutingFragment : Fragment() {
 
@@ -123,11 +120,16 @@ class AllianceScoutingFragment : Fragment() {
         var redHarmony = 0
         binding.redHarmony?.setOnClickListener {
             if(binding.redHarmony?.isChecked == true){
-                redHarmony = 1;
+                redHarmony = 1
             }
             else {
                 redHarmony = 0
             }
+        }
+
+        binding.allianceSubmit?.setOnClickListener {
+            val submit_values = intArrayOf(blueAmpsCount, blueCoOp, blueMelody, blueEnsamble, blueHarmony, redAmpsCount, redCoOp, redMelody, redEnsamble, redHarmony)
+            System.out.println(binding.blueAlliance.getText().toString() + " " + binding.redAlliance.getText().toString() + " " + binding.blueNotes.getText().toString() + " " + binding.redNotes.getText().toString() + " " + submit_values[0] + " " + submit_values[1] + " " + submit_values[2] + " " + submit_values[3] + " " + submit_values[4] + " " + submit_values[5] + " " + submit_values[6] + " " + submit_values[7] + " " + submit_values[8] + " " + submit_values[9])
         }
         return root
     }
