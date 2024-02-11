@@ -9,6 +9,12 @@ PIT SCOUTING QUESTIONS
 - How they pick up notes
 - If can shoot where do you want to shoot (Against subwoofer, against podium, or anywhere)
 
+AUTO:
+where do you start (is this flexible [how many autos?])
+Where do you score?
+How many do you score?
+
+
 PIT SCOUT FORM PLANS
 - Misc questions (Team name stuff like that)
 - Auto questions
@@ -17,6 +23,9 @@ PIT SCOUT FORM PLANS
 - Question search?
 - Question information?
 - Cool animations?
+- Skill trees?
+- Vehicles?
+- Leveling system?
 - GIMP
 - Switch between different types of questions?
 */
@@ -59,39 +68,40 @@ class PitScoutingFragment : Fragment() {
             }
         }
         val teamnameAnswerBox : EditText? = binding.teamNameAnswer
-        var teamnameText = teamnameAnswerBox?.text
-        var teamnameAnswer = ""
+        focusListener(teamnameAnswerBox)
 
-        teamnameAnswerBox?.setOnFocusChangeListener {
-            v: View,
-            hasFocus : Boolean ->
 
-            fun onFocusChange(v : View, hasFocus : Boolean) {
-                // if teamAnswerBox is equal to the text which was originally in the text box
-                if(teamnameAnswerBox.text.toString().equals(teamnameText.toString())) {
-                    // If teamnameAnswerBox is not focused, then reset teamnameAnswerBox to it's original text
-                    if(!v.hasFocus()) {
-                        teamnameAnswerBox.text = teamnameText
-                    } else { // Since teamnameAnswerBox is now focused clear it so the text doesn't need to be cleared
-                        teamnameAnswerBox.text.clear()
-                    }
-                } else { // Since teamnameAnswerBox isn't equal to the text which was originally in the box TODO: I think cases where what's in the text box is "" can be dealt with prior to this else
-                    // If teamnameAnswerBox is blank, then reest teamnameAnswerBox to it's original text
-                    if(teamnameAnswerBox.text.toString().equals("")) {
-                        teamnameAnswerBox.text = teamnameText
-                    } else { // Since teamnameAnswerBox isn't blank, save the current value in teamnameAnswerBox
-                        teamnameAnswer = teamnameAnswerBox.text.toString()
-                    }
-                }
-            }
-
-            onFocusChange(v, hasFocus) // Run on change function
-        }
 
         return root
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    fun focusListener(textBoxID : EditText?): String {
+        var answer = ""
+        val originalText = textBoxID?.text
+
+        textBoxID?.setOnFocusChangeListener {
+                v: View,
+                hasFocus : Boolean ->
+
+            fun onFocusChange(v : View, hasFocus : Boolean) {
+                // if teamAnswerBox is equal to the text which was originally in the text box
+                if(textBoxID.text.toString().equals(originalText.toString()) || textBoxID.text.isBlank()) {
+                    // If textBoxID is not focused, then reset textBoxID to it's original text
+                    if(!v.hasFocus()) {
+                        textBoxID.text = originalText
+                    } else { // Since textBoxID is now focused clear it so the text doesn't need to be cleared
+                        textBoxID.text.clear()
+                    }
+                } else { // Since textBoxID isn't equal to the text which was originally in the box
+                    answer = textBoxID.text.toString()
+                }
+            }
+            onFocusChange(v, hasFocus) // Run on change function
+        }
+
+        return answer;
     }
 }
