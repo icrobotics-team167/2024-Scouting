@@ -33,7 +33,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="60dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -63,12 +63,22 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingBottom="100dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingBottom="40dp">
+
+                            <TextView
+                                android:id="@+id/basicQuestions"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:autoSizeTextType="uniform"
+                                android:text="Basic Info Questions"
+                                android:textAlignment="center" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -170,31 +180,61 @@
                                     android:layout_height="wrap_content"
                                     android:text="Rookie Team?" />
 
-                                <LinearLayout
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/lakeChargoggagoggmanchauggagoggchaubunagungamaugg"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:text="Can you pronounce this? (MOST IMPORTANT QUESTION): Lake Chargoggagoggmanchauggagoggchaubunagungamaugg" />
 
-                                    <TextView
-                                        android:id="@+id/autoCount"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="How many autos?" />
+                                <SeekBar
+                                    android:id="@+id/seekBar2"
+                                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                    android:layout_width="462dp"
+                                    android:layout_height="wrap_content"
+                                    android:max="3"
+                                    android:progress="3" />
 
-                                    <EditText
-                                        android:id="@+id/editTextNumber2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="32dp"
-                                        android:ems="10"
-                                        android:inputType="number" />
-                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingBottom="40dp">
+
+                            <TextView
+                                android:id="@+id/autoQuestions"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:autoSizeTextType="uniform"
+                                android:text="Auto Questions"
+                                android:textAlignment="center" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/autoCount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="How many autos?" />
+
+                                <EditText
+                                    android:id="@+id/editTextNumber2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="32dp"
+                                    android:ems="10"
+                                    android:inputType="number" />
+                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="336dp"
@@ -228,7 +268,7 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
@@ -236,36 +276,66 @@
                                     android:id="@+id/startingArea"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Where do you start?"
-                                    android:textSize="15dp" />
+                                    android:text="Where do you start?" />
 
-                                <EditText
-                                    android:id="@+id/editTextTextMultiLine"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="79dp"
-                                    android:ems="10"
-                                    android:gravity="start|top"
-                                    android:inputType="textMultiLine"
-                                    android:text="Enter their start thingy or whatever idfk"
-                                    android:textSize="15dp" />
+                                <LinearLayout
+                                    android:layout_width="712dp"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/doesMatter"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Does it matter? (All)" />
+
+                                    <CheckBox
+                                        android:id="@+id/left"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Left" />
+
+                                    <CheckBox
+                                        android:id="@+id/right"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Right" />
+
+                                    <CheckBox
+                                        android:id="@+id/center"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Center" />
+                                </LinearLayout>
 
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/whereDoYouScore"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Where do you score?" />
 
                                 <LinearLayout
-                                    android:layout_width="316dp"
+                                    android:layout_width="452dp"
                                     android:layout_height="match_parent"
                                     android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/ampAndSpeaker"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Both" />
 
                                     <CheckBox
                                         android:id="@+id/amp"
@@ -280,6 +350,34 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:text="Speaker" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/scoreAuto"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="What can you score?" />
+
+                                    <EditText
+                                        android:id="@+id/editTextNumber3"
+                                        android:layout_width="109dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:inputType="number"
+                                        android:text="0"
+                                        android:textAlignment="center"/>
+
                                 </LinearLayout>
 
                             </LinearLayout>

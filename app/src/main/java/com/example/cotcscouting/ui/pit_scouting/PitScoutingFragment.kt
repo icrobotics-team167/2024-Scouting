@@ -10,24 +10,30 @@ PIT SCOUTING QUESTIONS
 - If can shoot where do you want to shoot (Against subwoofer, against podium, or anywhere)
 
 AUTO:
-where do you start (is this flexible [how many autos?])
-Where do you score?
-How many do you score?
+where do you start (is this flexible [how many autos?]) added
+Where do you score? added
+How many do you score? added
 
+TELEOP:
+Game strategy
+Intake(Ground or source)
+Which speaker you go for
+Where you shoot
+How many points can you earn in a match
+
+Endgame Questions:
+Do you climb?
+How long to climb?
+Where do you climb? (Middle, edges)
+Do you score on the trap?
 
 PIT SCOUT FORM PLANS
-- Misc questions (Team name stuff like that)
-- Auto questions
-- Teleop questions
-- Drop down menu?
-- Question search?
-- Question information?
 - Cool animations?
 - Skill trees?
 - Vehicles?
 - Leveling system?
-- GIMP
-- Switch between different types of questions?
+- Subway surfers on the side?
+- Lake chargoggagoggmanchauggagoggchaubunagungamaugg?
 */
 
 package com.example.cotcscouting.ui.pit_scouting
