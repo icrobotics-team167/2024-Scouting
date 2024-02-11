@@ -73,8 +73,9 @@ class PitScoutingFragment : Fragment() {
                 textView.text = it
             }
         }
-        val teamnameAnswerBox : EditText? = binding.teamNameAnswer
-        focusListener(teamnameAnswerBox)
+        focusListener(binding.scoutAnswer)
+        focusListener(binding.coachAnswer)
+        focusListener(binding.driveBaseAnswer)
 
 
 

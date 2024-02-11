@@ -97,8 +97,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:ems="10"
-                                    android:inputType="text"
-                                    android:text="Team number"
+                                    android:inputType="number"
+                                    android:text="0"
                                     android:textSize="15dp" />
 
                             </LinearLayout>
@@ -193,12 +193,11 @@
                                     android:text="Can you pronounce this? (MOST IMPORTANT QUESTION): Lake Chargoggagoggmanchauggagoggchaubunagungamaugg" />
 
                                 <SeekBar
-                                    android:id="@+id/seekBar2"
+                                    android:id="@+id/lakeChargoggagoggmanchauggagoggchaubunagungamauggSeekBar"
                                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                                     android:layout_width="462dp"
                                     android:layout_height="wrap_content"
-                                    android:max="3"
-                                    android:progress="3" />
+                                    android:max="3" />
 
                             </LinearLayout>
                         </LinearLayout>
@@ -229,7 +228,7 @@
                                     android:text="How many autos?" />
 
                                 <EditText
-                                    android:id="@+id/editTextNumber2"
+                                    android:id="@+id/autoCountNumber"
                                     android:layout_width="match_parent"
                                     android:layout_height="32dp"
                                     android:ems="10"
@@ -367,10 +366,10 @@
                                         android:id="@+id/scoreAuto"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="What can you score?" />
+                                        android:text="How many notes can you score?" />
 
                                     <EditText
-                                        android:id="@+id/editTextNumber3"
+                                        android:id="@+id/scoreCountAuto"
                                         android:layout_width="109dp"
                                         android:layout_height="wrap_content"
                                         android:ems="10"
