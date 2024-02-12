@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
-import com.example.cotcscouting.ui.pit_scouting.PitScoutingViewModel
 
 class MatchScoutingFragment : Fragment()  {
 
@@ -103,57 +102,52 @@ class MatchScoutingFragment : Fragment()  {
 
         var leave = 0
         binding.leave?.setOnClickListener {
-            if(binding.leave?.isChecked == true){
-                leave = 1;
-            }
-            else {
-                leave = 0
+            leave = if(binding.leave?.isChecked == true){
+                1
+            } else {
+                0
             }
         }
 
         var onStage = 0
         binding.onStage?.setOnClickListener {
-            if(binding.onStage?.isChecked == true){
-                onStage = 1;
-            }
-            else {
-                onStage = 0
+            onStage = if(binding.onStage?.isChecked == true){
+                1
+            } else {
+                0
             }
         }
 
         var onStageSpotlit = 0
         binding.onStageSpotlit?.setOnClickListener {
-            if(binding.onStageSpotlit?.isChecked == true){
-                onStageSpotlit = 1;
-            }
-            else {
-                onStageSpotlit = 0
+            onStageSpotlit = if(binding.onStageSpotlit?.isChecked == true){
+                1
+            } else {
+                0
             }
         }
 
         var trapNote = 0
         binding.trapNote?.setOnClickListener {
-            if(binding.trapNote?.isChecked == true){
-                trapNote = 1;
-            }
-            else {
-                trapNote = 0
+            trapNote = if(binding.trapNote?.isChecked == true){
+                1
+            } else {
+                0
             }
         }
 
         var park = 0
         binding.park?.setOnClickListener {
-            if(binding.park?.isChecked == true){
-                park = 1;
-            }
-            else {
-                park = 0
+            park = if(binding.park?.isChecked == true){
+                1
+            } else {
+                0
             }
         }
 
         binding.submit?.setOnClickListener {
-            val submit_values = intArrayOf(autoAmpCount, autoSpeakerCount, teleopAmpCount, teleOpSpeakerCount, ampSpeakerCount, leave, onStage, onStageSpotlit, trapNote, park,)
-            System.out.println(" " + submit_values[0] + " " + submit_values[1] + " " + submit_values[2] + " " + submit_values[3] + " " + submit_values[4] + " " + submit_values[5] + " " + submit_values[6] + " " + submit_values[7] + " " + submit_values[8] + " " + submit_values[9])
+            val submitValues = intArrayOf(autoAmpCount, autoSpeakerCount, teleopAmpCount, teleOpSpeakerCount, ampSpeakerCount, leave, onStage, onStageSpotlit, trapNote, park)
+            println(" " + submitValues[0] + " " + submitValues[1] + " " + submitValues[2] + " " + submitValues[3] + " " + submitValues[4] + " " + submitValues[5] + " " + submitValues[6] + " " + submitValues[7] + " " + submitValues[8] + " " + submitValues[9])
         }
         return root
     }
