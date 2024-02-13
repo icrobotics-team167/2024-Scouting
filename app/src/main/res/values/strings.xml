@@ -28,4 +28,8 @@
     <string name="submit">Submit</string>
     <string name="title_alliance_scouting">Alliance Scouting</string>
     <string name="blue_alliance">Blue Alliance</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="team">Team</string>
 </resources>
