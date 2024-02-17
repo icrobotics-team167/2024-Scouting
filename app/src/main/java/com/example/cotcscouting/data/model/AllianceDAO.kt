@@ -13,10 +13,6 @@ interface AllianceDAO {
     @Query("SELECT * FROM alliance WHERE uid IN (:allianceIds)")
     fun loadAllByIds(allianceIds: IntArray): List<Alliance>
 
-    @Query("SELECT * FROM alliance WHERE first_name LIKE :first AND " +
-            "last_name LIKE :last LIMIT 1")
-    fun findByName(first: String, last: String): Alliance
-
     @Insert
     fun insertAll(vararg alliances: Alliance)
 
