@@ -7,7 +7,7 @@
     <string name="amp_notes"> Amp Notes:</string>
     <string name="speaker_notes"> Speaker Notes:</string>
     <string name="leave">Leave</string>
-    <string name="endgame_human_player">Endgame/Human Player</string>
+    <string name="endgame_human_player">Endgame</string>
     <string name="tele_op">Tele-Op</string>
     <string name="amplified_speaker_notes"> Amplified Speaker Notes: </string>
     <string name="on_stage">On Stage</string>
@@ -25,4 +25,7 @@
     <string name="_2_robot_same_chain">2 Robot Same Chain</string>
     <string name="dec_button">-</string>
     <string name="inc_button">+</string>
+    <string name="submit">Submit</string>
+    <string name="title_alliance_scouting">Alliance Scouting</string>
+    <string name="blue_alliance">Blue Alliance</string>
 </resources>

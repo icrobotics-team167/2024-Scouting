@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.cotcscouting.data.model.AppDatabase
+import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
-import com.example.cotcscouting.ui.pit_scouting.PitScoutingViewModel
 
 class MatchScoutingFragment : Fragment()  {
 
@@ -74,7 +75,99 @@ class MatchScoutingFragment : Fragment()  {
             teleopAmpCount++
             binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
         }
+        var teleOpSpeakerCount = 0
+        binding.teleOpSpeakerDec?.setOnClickListener {
+            if(teleOpSpeakerCount > 0) {
+                teleOpSpeakerCount--
+            }
+            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+        }
 
+        binding.teleOpSpeakerInc?.setOnClickListener {
+            teleOpSpeakerCount++
+            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+        }
+
+        var ampSpeakerCount = 0
+        binding.ampSpeakerNoteDec?.setOnClickListener {
+            if(ampSpeakerCount > 0) {
+                ampSpeakerCount--
+            }
+            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
+        }
+
+        binding.ampSpeakerNoteInc?.setOnClickListener {
+            ampSpeakerCount++
+            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
+        }
+
+
+        var leave = false
+        binding.leave?.setOnClickListener {
+            leave = if(binding.leave?.isChecked == true){
+                true
+            } else {
+                false
+            }
+        }
+
+        var onStage = false
+        binding.onStage?.setOnClickListener {
+            onStage = if(binding.onStage?.isChecked == true){
+                true
+            } else {
+                false
+            }
+        }
+
+        var onStageSpotlit = false
+        binding.onStageSpotlit?.setOnClickListener {
+            onStageSpotlit = if(binding.onStageSpotlit?.isChecked == true){
+                true
+            } else {
+                false
+            }
+        }
+
+        var trapNote = 0
+        binding.trapNote?.setOnClickListener {
+            trapNote = if(binding.trapNote?.isChecked == true){
+                1
+            } else {
+                0
+            }
+        }
+
+        var park = false
+        binding.park?.setOnClickListener {
+            park = if(binding.park?.isChecked == true){
+                true
+            } else {
+                false
+            }
+        }
+
+        binding.submit?.setOnClickListener {
+            val match = Match(
+                0,
+                autoAmpCount = autoAmpCount,
+                autoSpeakerCount = autoSpeakerCount,
+                teleopAmpCount = teleopAmpCount,
+                teleOpSpeakerCount = teleOpSpeakerCount,
+                ampSpeakerCount = ampSpeakerCount,
+                leave = leave,
+                onStage = onStage,
+                onStageSpotlit = onStageSpotlit,
+                trapNote = trapNote,
+                park = park,
+                teamNumber = 167,
+                matchNumber = 0,
+                scoutName = "Calder",
+                regionalCode = "missouri"
+            )
+            val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
+            database?.matchDAO()?.insert(match)
+}
         return root
     }
 
