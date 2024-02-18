@@ -104,29 +104,17 @@ class MatchScoutingFragment : Fragment()  {
 
         var leave = false
         binding.leave?.setOnClickListener {
-            leave = if(binding.leave?.isChecked == true){
-                true
-            } else {
-                false
-            }
+            leave = binding.leave?.isChecked == true
         }
 
         var onStage = false
         binding.onStage?.setOnClickListener {
-            onStage = if(binding.onStage?.isChecked == true){
-                true
-            } else {
-                false
-            }
+            onStage = binding.onStage?.isChecked == true
         }
 
         var onStageSpotlit = false
         binding.onStageSpotlit?.setOnClickListener {
-            onStageSpotlit = if(binding.onStageSpotlit?.isChecked == true){
-                true
-            } else {
-                false
-            }
+            onStageSpotlit = binding.onStageSpotlit?.isChecked == true
         }
 
         var trapNote = 0
@@ -140,11 +128,7 @@ class MatchScoutingFragment : Fragment()  {
 
         var park = false
         binding.park?.setOnClickListener {
-            park = if(binding.park?.isChecked == true){
-                true
-            } else {
-                false
-            }
+            park = binding.park?.isChecked == true
         }
 
         binding.submit?.setOnClickListener {

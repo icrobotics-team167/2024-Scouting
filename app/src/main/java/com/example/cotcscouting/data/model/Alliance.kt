@@ -8,11 +8,13 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "alliance")
 data class Alliance(
     @PrimaryKey(autoGenerate = true) val uid: Int,
+    @ColumnInfo(name = "blue_notes") val blueNotes: String?,
     @ColumnInfo(name = "blue_amps_count") val blueAmpsCount: Int?,
     @ColumnInfo(name = "blue_co_op") val blueCoOp: Boolean?,
     @ColumnInfo(name = "blue_melody") val blueMelody: Boolean?,
     @ColumnInfo(name = "blue_ensamble") val blueEnsamble: Boolean?,
     @ColumnInfo(name = "blue_harmony") val blueHarmony: Boolean?,
+    @ColumnInfo(name = "red_notes") val redNotes: String?,
     @ColumnInfo(name = "red_amps_count") val redAmpsCount: Int?,
     @ColumnInfo(name = "red_co_op") val redCoOp: Boolean?,
     @ColumnInfo(name = "red_melody") val redMelody: Boolean?,
