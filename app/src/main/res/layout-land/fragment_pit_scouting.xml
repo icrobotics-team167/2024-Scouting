@@ -89,8 +89,7 @@
                                     android:id="@+id/team_name"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Team Number"
-                                    android:textSize="10dp" />
+                                    android:text="Team Number" />
 
                                 <EditText
                                     android:id="@+id/team_name_answer"
@@ -112,8 +111,7 @@
                                     android:id="@+id/scout"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Scout Name"
-                                    android:textSize="10dp" />
+                                    android:text="Scout Name" />
 
                                 <EditText
                                     android:id="@+id/scout_answer"
@@ -134,8 +132,7 @@
                                     android:id="@+id/coach"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Drive Coach Name"
-                                    android:textSize="10dp" />
+                                    android:text="Drive Coach Name" />
 
                                 <EditText
                                     android:id="@+id/coach_answer"
@@ -156,8 +153,7 @@
                                     android:id="@+id/drive_base"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Drive base"
-                                    android:textSize="10dp" />
+                                    android:text="Drive base" />
 
                                 <EditText
                                     android:id="@+id/drive_base_answer"
@@ -382,6 +378,140 @@
                             </LinearLayout>
 
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingBottom="40dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/teleopQuestions"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:autoSizeTextType="uniform"
+                                android:text="Teleop Questions"
+                                android:textAlignment="center" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/gameStrategy"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Game Strategy" />
+
+                                <EditText
+                                    android:id="@+id/editTextTextMultiLine"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="84dp"
+                                    android:ems="10"
+                                    android:gravity="start|top"
+                                    android:inputType="textMultiLine"
+                                    android:text="Enter a description of their strategy." />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/intake"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Intake" />
+
+                                <LinearLayout
+                                    android:layout_width="445dp"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/bothGroundAndSource"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Both" />
+
+                                    <CheckBox
+                                        android:id="@+id/ground"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Ground" />
+
+                                    <CheckBox
+                                        android:id="@+id/Source"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Source" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/whichSpeaker"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Which speaker do you go for?" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/whereDoYouShoot"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Where do you shoot?" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/scoreTeleop"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="What can you score?" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="40dp">
+
+                            <TextView
+                                android:id="@+id/endgameQuestions"
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp"
+                                android:autoSizeTextType="uniform"
+                                android:text="Endgame Questions"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/submitButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Submit" />
 
                     </LinearLayout>
                 </ScrollView>

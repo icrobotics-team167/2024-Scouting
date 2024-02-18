@@ -1,14 +1,4 @@
 /*
-PIT SCOUTING QUESTIONS
-- Auto function + what area (Score)
-- Teleop function
-- Strategy
-- Endgame function (Hanging)
-- Hanging mechanisms
-- Drive train type
-- How they pick up notes
-- If can shoot where do you want to shoot (Against subwoofer, against podium, or anywhere)
-
 AUTO:
 where do you start (is this flexible [how many autos?]) added
 Where do you score? added
@@ -33,6 +23,7 @@ PIT SCOUT FORM PLANS
 - Vehicles?
 - Leveling system?
 - Subway surfers on the side?
+- Rename all of the xml things to be all undercase instead of camel case?
 - Lake chargoggagoggmanchauggagoggchaubunagungamaugg?
 */
 
