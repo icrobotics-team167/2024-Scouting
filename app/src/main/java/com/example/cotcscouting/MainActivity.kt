@@ -7,8 +7,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.room.Room
-import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
