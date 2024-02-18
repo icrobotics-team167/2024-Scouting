@@ -8,7 +8,8 @@ TELEOP:
 Game strategy
 Intake(Ground or source)
 Which speaker you go for
-Where you shoot
+Furthest shot
+Closest shot
 How many points can you earn in a match
 
 Endgame Questions:
@@ -23,7 +24,9 @@ PIT SCOUT FORM PLANS
 - Vehicles?
 - Leveling system?
 - Subway surfers on the side?
-- Rename all of the xml things to be all undercase instead of camel case?
+- Tiktok compilation next to subway surfers?
+- Random loud noises?
+- Micro-transactions?
 - Lake chargoggagoggmanchauggagoggchaubunagungamaugg?
 */
 

@@ -73,7 +73,7 @@
                             android:paddingBottom="40dp">
 
                             <TextView
-                                android:id="@+id/basicQuestions"
+                                android:id="@+id/basic_questions"
                                 android:layout_width="match_parent"
                                 android:layout_height="25dp"
                                 android:autoSizeTextType="uniform"
@@ -93,7 +93,7 @@
 
                                 <EditText
                                     android:id="@+id/team_name_answer"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="109dp"
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="number"
@@ -171,7 +171,7 @@
                                 android:orientation="vertical">
 
                                 <Switch
-                                    android:id="@+id/rookieTeam"
+                                    android:id="@+id/rookie_team"
                                     android:layout_width="336dp"
                                     android:layout_height="wrap_content"
                                     android:text="Rookie Team?" />
@@ -183,13 +183,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/lakeChargoggagoggmanchauggagoggchaubunagungamaugg"
+                                    android:id="@+id/lake_chargoggagoggmanchauggagoggchaubunagungamaugg"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Can you pronounce this? (MOST IMPORTANT QUESTION): Lake Chargoggagoggmanchauggagoggchaubunagungamaugg" />
 
                                 <SeekBar
-                                    android:id="@+id/lakeChargoggagoggmanchauggagoggchaubunagungamauggSeekBar"
+                                    android:id="@+id/lake_chargoggagoggmanchauggagoggchaubunagungamaugg_seekbar"
                                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                                     android:layout_width="462dp"
                                     android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
                             android:paddingBottom="40dp">
 
                             <TextView
-                                android:id="@+id/autoQuestions"
+                                android:id="@+id/auto_questions"
                                 android:layout_width="match_parent"
                                 android:layout_height="25dp"
                                 android:autoSizeTextType="uniform"
@@ -218,17 +218,19 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/autoCount"
+                                    android:id="@+id/auto_count"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="How many autos?" />
 
                                 <EditText
-                                    android:id="@+id/autoCountNumber"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="32dp"
+                                    android:id="@+id/auto_count_number"
+                                    android:layout_width="109dp"
+                                    android:layout_height="wrap_content"
                                     android:ems="10"
-                                    android:inputType="number" />
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textAlignment="center" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -237,25 +239,25 @@
                                 android:orientation="vertical">
 
                                 <Switch
-                                    android:id="@+id/hasAuto"
+                                    android:id="@+id/has_auto"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Do you have an auto?" />
 
                                 <Switch
-                                    android:id="@+id/doesPreload"
+                                    android:id="@+id/does_preload"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Do you preload?" />
 
                                 <Switch
-                                    android:id="@+id/doesShoot"
+                                    android:id="@+id/does_shoot"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Do you shoot?" />
 
                                 <Switch
-                                    android:id="@+id/doesIntake"
+                                    android:id="@+id/does_intake"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Do you intake?" />
@@ -268,7 +270,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/startingArea"
+                                    android:id="@+id/starting_area"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Where do you start?" />
@@ -279,7 +281,7 @@
                                     android:orientation="horizontal">
 
                                     <CheckBox
-                                        android:id="@+id/doesMatter"
+                                        android:id="@+id/does_matter"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -315,7 +317,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/whereDoYouScore"
+                                    android:id="@+id/where_do_you_score"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Where do you score?" />
@@ -326,7 +328,7 @@
                                     android:orientation="horizontal">
 
                                     <CheckBox
-                                        android:id="@+id/ampAndSpeaker"
+                                        android:id="@+id/amp_and_speaker"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -359,13 +361,13 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/scoreAuto"
+                                        android:id="@+id/score_auto"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="How many notes can you score?" />
 
                                     <EditText
-                                        android:id="@+id/scoreCountAuto"
+                                        android:id="@+id/score_count_auto"
                                         android:layout_width="109dp"
                                         android:layout_height="wrap_content"
                                         android:ems="10"
@@ -385,7 +387,7 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/teleopQuestions"
+                                android:id="@+id/teleop_questions"
                                 android:layout_width="match_parent"
                                 android:layout_height="25dp"
                                 android:autoSizeTextType="uniform"
@@ -398,13 +400,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/gameStrategy"
+                                    android:id="@+id/game_strategy"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Game Strategy" />
 
                                 <EditText
-                                    android:id="@+id/editTextTextMultiLine"
+                                    android:id="@+id/game_strategy_answer"
                                     android:layout_width="match_parent"
                                     android:layout_height="84dp"
                                     android:ems="10"
@@ -431,7 +433,7 @@
                                     android:orientation="horizontal">
 
                                     <CheckBox
-                                        android:id="@+id/bothGroundAndSource"
+                                        android:id="@+id/ground_and_source"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -445,7 +447,7 @@
                                         android:text="Ground" />
 
                                     <CheckBox
-                                        android:id="@+id/Source"
+                                        android:id="@+id/source"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
@@ -460,10 +462,37 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/whichSpeaker"
+                                    android:id="@+id/longest_shot"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Which speaker do you go for?" />
+                                    android:text="What is the farthest shot you can make?" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:id="@+id/against_subwoofer"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Against subwoofer" />
+
+                                    <CheckBox
+                                        android:id="@+id/against_podium"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Against podium" />
+
+                                    <CheckBox
+                                        android:id="@+id/in_your_wing"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="In you wing" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
@@ -472,22 +501,19 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/whereDoYouShoot"
+                                    android:id="@+id/score_teleop"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Where do you shoot?" />
-                            </LinearLayout>
+                                    android:text="How many points can you score?" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/scoreTeleop"
-                                    android:layout_width="match_parent"
+                                <EditText
+                                    android:id="@+id/score_teleop_answer"
+                                    android:layout_width="109dp"
                                     android:layout_height="wrap_content"
-                                    android:text="What can you score?" />
+                                    android:ems="10"
+                                    android:textAlignment="center"
+                                    android:text="0"
+                                    android:inputType="number" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -499,16 +525,84 @@
                             android:paddingBottom="40dp">
 
                             <TextView
-                                android:id="@+id/endgameQuestions"
+                                android:id="@+id/endgame_questions"
                                 android:layout_width="match_parent"
                                 android:layout_height="25dp"
                                 android:autoSizeTextType="uniform"
                                 android:text="Endgame Questions"
                                 android:textAlignment="center" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+
+                                <Switch
+                                    android:id="@+id/can_climb"
+                                    android:layout_width="336dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Do you climb?" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/climb_time"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="How long does it take you to climb?" />
+
+                                <EditText
+                                    android:id="@+id/climb_time_answer"
+                                    android:layout_width="109dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:inputType="number"
+                                    android:text="0"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <Switch
+                                        android:id="@+id/can_get_harmony"
+                                        android:layout_width="336dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Can you get a harmony?" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <Switch
+                                    android:id="@+id/can_score_trap"
+                                    android:layout_width="336dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Do you score on the trap?" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/submitButton"
+                            android:id="@+id/submit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Submit" />
