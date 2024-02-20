@@ -31,6 +31,21 @@ class AllianceScoutingFragment : Fragment() {
             blueNotes = binding.blueNotes.text.toString()
         }
 
+        var michaelTextOne = ""
+        binding.michaelTextOne.setOnClickListener {
+            michaelTextOne = binding.michaelTextOne.text.toString()
+        }
+
+        var michaelTextTwo = ""
+        binding.michaelTextTwo.setOnClickListener {
+            michaelTextTwo = binding.michaelTextTwo.text.toString()
+        }
+
+        var michaelTextThree = ""
+        binding.michaelTextThree.setOnClickListener {
+            michaelTextThree = binding.michaelTextThree.text.toString()
+        }
+
         var blueAmpsCount = 0
         binding.blueAmpsDec.setOnClickListener {
             if(blueAmpsCount > 0) {
@@ -66,6 +81,21 @@ class AllianceScoutingFragment : Fragment() {
         var redNotes = ""
         binding.redNotes.setOnClickListener {
             redNotes = binding.redNotes.text.toString()
+        }
+
+        var redMichaelTextOne = ""
+        binding.redMichaelTextOne.setOnClickListener {
+            redMichaelTextOne = binding.redMichaelTextOne.text.toString()
+        }
+
+        var redMichaelTextTwo = ""
+        binding.redMichaelTextTwo.setOnClickListener {
+            redMichaelTextTwo = binding.redMichaelTextTwo.text.toString()
+        }
+
+        var redMichaelTextThree = ""
+        binding.redMichaelTextThree.setOnClickListener {
+            redMichaelTextThree = binding.redMichaelTextThree.text.toString()
         }
 
         var redAmpsCount = 0
@@ -118,7 +148,13 @@ class AllianceScoutingFragment : Fragment() {
                 redHarmony = redHarmony,
                 matchNumber = 0,
                 scoutName = "Calder",
-                regionalCode = "missouri"
+                regionalCode = "missouri",
+                michaelTextOne = michaelTextOne,
+                michaelTextTwo = michaelTextTwo,
+                michaelTextThree = michaelTextThree,
+                redMichaelTextOne = redMichaelTextOne,
+                redMichaelTextTwo = redMichaelTextTwo,
+                redMichaelTextThree = redMichaelTextThree,
             )
             println(blueNotes)
             database?.allianceDAO()?.insert(alliance)

@@ -22,5 +22,13 @@ data class Alliance(
     @ColumnInfo(name = "red_harmony") val redHarmony: Boolean?,
     @ColumnInfo(name = "match_number") val matchNumber: Int,
     @ColumnInfo(name = "scout_name") val scoutName: String,
-    @ColumnInfo(name= "regional_code") val regionalCode: String
+    @ColumnInfo(name= "regional_code") val regionalCode: String,
+    @ColumnInfo(name= "michael_text_one") val michaelTextOne: String,
+    @ColumnInfo(name= "michael_text_two") val michaelTextTwo: String,
+    @ColumnInfo(name= "michael_text_three") val michaelTextThree: String,
+    @ColumnInfo(name= "red_michael_text_one") val redMichaelTextOne: String,
+    @ColumnInfo(name= "red_michael_text_two") val redMichaelTextTwo: String,
+    @ColumnInfo(name= "red_michael_text_three") val redMichaelTextThree: String
+
+
 )
