@@ -22,5 +22,5 @@ interface MatchDAO {
     @Delete
     fun delete(match: Match)
     @Insert
-    abstract fun insert(match: Match)
+    fun insert(match: Match)
 }

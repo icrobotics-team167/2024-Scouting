@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -131,6 +132,47 @@ class MatchScoutingFragment : Fragment()  {
             park = binding.park?.isChecked == true
         }
 
+        var ring1 = false
+        binding.ring1?.setOnClickListener {
+            ring1 = binding.ring1?.isChecked == true
+        }
+
+        var ring2 = false
+        binding.ring2?.setOnClickListener {
+            ring2 = binding.ring2?.isChecked == true
+        }
+
+        var ring3 = false
+        binding.ring3?.setOnClickListener {
+            ring3 = binding.ring3?.isChecked == true
+        }
+
+        var ring4 = false
+        binding.ring4?.setOnClickListener {
+            ring4 = binding.ring4?.isChecked == true
+        }
+
+        var ring5 = false
+        binding.ring5?.setOnClickListener {
+            ring5 = binding.ring5?.isChecked == true
+        }
+
+        var shootingDistanceBar = 1
+        binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                // here, you react to the value being set in seekBar
+                shootingDistanceBar = progress
+                println(shootingDistanceBar)
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // you can probably leave this empty
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // you can probably leave this empty
+            }
+        })
+
         binding.submit?.setOnClickListener {
             val match = Match(
                 0,
@@ -144,6 +186,12 @@ class MatchScoutingFragment : Fragment()  {
                 onStageSpotlit = onStageSpotlit,
                 trapNote = trapNote,
                 park = park,
+                ring1 = ring1,
+                ring2 = ring2,
+                ring3 = ring3,
+                ring4 = ring4,
+                ring5 = ring5,
+                shootingDistanceBar = shootingDistanceBar,
                 teamNumber = 167,
                 matchNumber = 0,
                 scoutName = "Calder",
