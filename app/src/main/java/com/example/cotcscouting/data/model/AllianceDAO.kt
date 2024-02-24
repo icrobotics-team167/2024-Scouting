@@ -18,4 +18,6 @@ interface AllianceDAO {
 
     @Delete
     fun delete(alliance: Alliance)
+    @Insert
+    fun insert(alliance: Alliance)
 }
