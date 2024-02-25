@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
-            android:background="@color/cardview_shadow_start_color">
+            android:background="#c48252">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -605,6 +605,7 @@
                             android:id="@+id/submit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:backgroundTint="#eb83d4"
                             android:text="Submit" />
 
                     </LinearLayout>
