@@ -22,4 +22,4 @@ data class Pit(
     @ColumnInfo(name = "notes_score_count") val notesScoreCount: Int?,
     @ColumnInfo(name = "game_strategy") val gameStrategy: String,
     @ColumnInfo(name = "intake") val intake: String
-    )
+)

@@ -40,6 +40,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.cotcscouting.data.model.AppDatabase
+import com.example.cotcscouting.data.model.Pit
 import com.example.cotcscouting.databinding.FragmentPitScoutingBinding
 
 class PitScoutingFragment : Fragment() {
@@ -67,10 +69,100 @@ class PitScoutingFragment : Fragment() {
                 textView.text = it
             }
         }
-        focusListener(binding.scoutAnswer)
-        focusListener(binding.coachAnswer)
-        focusListener(binding.driveBaseAnswer)
 
+        var startingArea = ArrayList<String>()
+
+        binding.doesMatter?.setOnClickListener {
+            startingArea.clear()
+            startingArea.add("All")
+            binding.left?.isChecked = false
+            binding.right?.isChecked = false
+            binding.center?.isChecked = false
+        }
+
+        // I don't like that I repeat the same if loop 3 times.
+        binding.left?.setOnClickListener {
+            if(startingArea.contains("Both")) {
+                startingArea.removeAt(startingArea.indexOf("Both"))
+            }
+            binding.doesMatter?.isChecked = false
+            startingArea.add("Left")
+        }
+        binding.right?.setOnClickListener {
+            if(startingArea.contains("Both")) {
+                startingArea.removeAt(startingArea.indexOf("Both"))
+            }
+            binding.doesMatter?.isChecked = false
+            startingArea.add("Right")
+        }
+        binding.center?.setOnClickListener {
+            if(startingArea.contains("Both")) {
+                startingArea.removeAt(startingArea.indexOf("Both"))
+            }
+            binding.doesMatter?.isChecked = false
+            startingArea.add("Center")
+        }
+
+
+        var scoreArea = "NO ANSWER"
+
+        binding.ampAndSpeaker?.setOnClickListener {
+            scoreArea = "Both"
+            binding.amp?.isChecked = false
+            binding.speaker?.isChecked = false
+        }
+        binding.amp?.setOnClickListener {
+            scoreArea = "Amp"
+            binding.speaker?.isChecked = false
+            binding.ampAndSpeaker?.isChecked = false
+        }
+        binding.speaker?.setOnClickListener {
+            scoreArea = "Speaker"
+            binding.amp?.isChecked = false
+            binding.ampAndSpeaker?.isChecked = false
+        }
+
+
+        var intake = "NO ANSWER"
+
+        binding.groundAndSource?.setOnClickListener {
+            intake = "Both"
+            binding.ground?.isChecked = false
+            binding.source?.isChecked = false
+        }
+        binding.ground?.setOnClickListener {
+            intake = "Ground"
+            binding.source?.isChecked = false
+            binding.groundAndSource?.isChecked = false
+        }
+        binding.source?.setOnClickListener {
+            intake = "Source"
+            binding.ground?.isChecked = false
+            binding.groundAndSource?.isChecked = false
+        }
+
+        binding.submit?.setOnClickListener {
+            val pit = Pit(
+                0,
+                teamNumber = Integer.decode(binding.teamNameAnswer?.text.toString()),
+                scoutName = binding.scoutAnswer?.text.toString(),
+                driveCoachName = binding.coachAnswer?.text.toString(),
+                driveBase = binding.driveBaseAnswer?.text.toString(),
+                rookieTeam = binding.rookieTeam?.isChecked,
+                howManyAutos = Integer.decode(binding.autoCount?.text.toString()),
+                hasAuto = binding.hasAuto?.isChecked,
+                doesPreload = binding.doesPreload?.isChecked,
+                doesShoot = binding.doesShoot?.isChecked,
+                doesIntake = binding.doesIntake?.isChecked,
+                whereDoYouStart = startingArea.toString(),
+                whereDoYouScore = scoreArea,
+                notesScoreCount = Integer.decode(binding.scoreAuto?.text.toString()),
+                gameStrategy = binding.gameStrategy?.text.toString(),
+                intake = intake
+            )
+            val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
+            database?.pitDAO()?.insert(pit)
+        }
 
 
         return root
@@ -79,7 +171,7 @@ class PitScoutingFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    fun focusListener(textBoxID : EditText?): String {
+    fun focusListenerString(textBoxID : EditText?): String {
         var answer = ""
         val originalText = textBoxID?.text
 
@@ -103,6 +195,6 @@ class PitScoutingFragment : Fragment() {
             onFocusChange(v, hasFocus) // Run on change function
         }
 
-        return answer;
+        return answer
     }
 }
