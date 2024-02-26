@@ -19,6 +19,23 @@ class MatchScoutingFragment : Fragment()  {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var autoAmpCount = 0
+    private var autoSpeakerCount = 0
+    private var teleopAmpCount = 0
+    private var teleOpSpeakerCount = 0
+    private var ampSpeakerCount = 0
+    private var leave = false
+    private var onStage = false
+    private var onStageSpotlit = false
+    private var trapNote = 0
+    private var park = false
+    private var rings = BooleanArray(5)
+    private var shootingDistanceBar = 0
+    private var teamNumber = 0
+    private var matchNumber = 0
+    private var scoutName = "Scout"
+    private var regionalCode = "missouri"
+    private var scoutingAssignment = "red 1"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +55,6 @@ class MatchScoutingFragment : Fragment()  {
             }
         }
 
-        var autoAmpCount = 0
         binding.autoAmpDec?.setOnClickListener {
             if(autoAmpCount > 0) {
                 autoAmpCount--
@@ -51,7 +67,6 @@ class MatchScoutingFragment : Fragment()  {
             binding.ampNoteAuto?.text = autoAmpCount.toString()
         }
 
-        var autoSpeakerCount = 0
         binding.autoSpeakerDec?.setOnClickListener {
             if(autoSpeakerCount > 0) {
                 autoSpeakerCount--
@@ -64,7 +79,6 @@ class MatchScoutingFragment : Fragment()  {
             binding.speakerNoteAuto?.text = autoSpeakerCount.toString()
         }
 
-        var teleopAmpCount = 0
         binding.teleOpAmpDec?.setOnClickListener {
             if(teleopAmpCount > 0) {
                 teleopAmpCount--
@@ -76,7 +90,6 @@ class MatchScoutingFragment : Fragment()  {
             teleopAmpCount++
             binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
         }
-        var teleOpSpeakerCount = 0
         binding.teleOpSpeakerDec?.setOnClickListener {
             if(teleOpSpeakerCount > 0) {
                 teleOpSpeakerCount--
@@ -89,7 +102,6 @@ class MatchScoutingFragment : Fragment()  {
             binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
         }
 
-        var ampSpeakerCount = 0
         binding.ampSpeakerNoteDec?.setOnClickListener {
             if(ampSpeakerCount > 0) {
                 ampSpeakerCount--
@@ -102,68 +114,55 @@ class MatchScoutingFragment : Fragment()  {
             binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
         }
 
-
-        var leave = false
         binding.leave?.setOnClickListener {
             leave = binding.leave?.isChecked == true
         }
-
-        var onStage = false
         binding.onStage?.setOnClickListener {
             onStage = binding.onStage?.isChecked == true
         }
 
-        var onStageSpotlit = false
         binding.onStageSpotlit?.setOnClickListener {
             onStageSpotlit = binding.onStageSpotlit?.isChecked == true
         }
 
-        var trapNote = 0
         binding.trapNote?.setOnClickListener {
-            trapNote = if(binding.trapNote?.isChecked == true){
+            trapNote = if (binding.trapNote?.isChecked == true) {
                 1
             } else {
                 0
             }
         }
 
-        var park = false
         binding.park?.setOnClickListener {
             park = binding.park?.isChecked == true
         }
 
-        var ring1 = false
         binding.ring1?.setOnClickListener {
-            ring1 = binding.ring1?.isChecked == true
+            rings[0] = binding.ring1?.isChecked == true
         }
 
-        var ring2 = false
         binding.ring2?.setOnClickListener {
-            ring2 = binding.ring2?.isChecked == true
+            rings[1] = binding.ring2?.isChecked == true
         }
 
-        var ring3 = false
         binding.ring3?.setOnClickListener {
-            ring3 = binding.ring3?.isChecked == true
+            rings[2] = binding.ring3?.isChecked == true
         }
 
-        var ring4 = false
         binding.ring4?.setOnClickListener {
-            ring4 = binding.ring4?.isChecked == true
+            rings[3] = binding.ring4?.isChecked == true
         }
 
-        var ring5 = false
         binding.ring5?.setOnClickListener {
-            ring5 = binding.ring5?.isChecked == true
+            rings[4] = binding.ring5?.isChecked == true
         }
 
-        var shootingDistanceBar = 1
         binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 // here, you react to the value being set in seekBar
                 shootingDistanceBar = progress
-                println(shootingDistanceBar)
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar) {
                 // you can probably leave this empty
             }
@@ -173,6 +172,24 @@ class MatchScoutingFragment : Fragment()  {
             }
         })
 
+        binding.matchNumber?.setOnClickListener {
+            val matchEditable = binding.matchNumber
+            if (matchEditable != null) {
+                matchNumber = Integer.parseInt(matchEditable.text.toString())
+            }
+        }
+
+        binding.teamNumber?.setOnClickListener {
+            val teamEditable = binding.teamNumber
+            if (teamEditable != null) {
+                teamNumber = Integer.parseInt(teamEditable.text.toString())
+            }
+        }
+
+        binding.scoutName?.text = scoutName
+        binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
+        binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
+        binding.scoutAssignment?.text = scoutingAssignment
         binding.submit?.setOnClickListener {
             val match = Match(
                 0,
@@ -186,25 +203,59 @@ class MatchScoutingFragment : Fragment()  {
                 onStageSpotlit = onStageSpotlit,
                 trapNote = trapNote,
                 park = park,
-                ring1 = ring1,
-                ring2 = ring2,
-                ring3 = ring3,
-                ring4 = ring4,
-                ring5 = ring5,
+                ring1 = rings[0],
+                ring2 = rings[1],
+                ring3 = rings[2],
+                ring4 = rings[3],
+                ring5 = rings[4],
                 shootingDistanceBar = shootingDistanceBar,
-                teamNumber = 167,
-                matchNumber = 0,
-                scoutName = "Calder",
-                regionalCode = "missouri"
+                teamNumber = teamNumber,
+                matchNumber = matchNumber,
+                scoutName = scoutName,
+                regionalCode = regionalCode
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.matchDAO()?.insert(match)
-}
+            matchNumber++
+            binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
+            clearFields()
+        }
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun clearFields() {
+        autoAmpCount = 0
+        binding.ampNoteAuto?.text = autoAmpCount.toString()
+        autoSpeakerCount = 0
+        binding.speakerNoteAuto?.text = autoSpeakerCount.toString()
+        teleopAmpCount = 0
+        binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
+        teleOpSpeakerCount = 0
+        binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+        ampSpeakerCount = 0
+        binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
+        leave = false
+        binding.leave?.isChecked = false
+        onStage = false
+        binding.onStage?.isChecked = false
+        onStageSpotlit = false
+        binding.onStageSpotlit?.isChecked = false
+        trapNote = 0
+        binding.trapNote?.isChecked = false
+        park = false
+        binding.park?.isChecked = false
+        rings = BooleanArray(5)
+        binding.ring1?.isChecked = false
+        binding.ring2?.isChecked = false
+        binding.ring3?.isChecked = false
+        binding.ring4?.isChecked = false
+        binding.ring5?.isChecked = false
+        shootingDistanceBar = 1
+        binding.shootingDistanceBar?.progress = 0
     }
 }
