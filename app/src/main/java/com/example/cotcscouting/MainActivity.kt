@@ -15,12 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        supportActionBar?.hide()
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val navView: BottomNavigationView = binding.navView
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.nav_host_fragment_activity_main
@@ -33,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_blue_alliance, R.id.navigation_match_scouting, R.id.navigation_pit_scouting, R.id.navigation_alliance_scouting
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }
