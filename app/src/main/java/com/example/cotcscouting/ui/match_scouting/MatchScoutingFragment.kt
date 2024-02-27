@@ -30,6 +30,7 @@ class MatchScoutingFragment : Fragment()  {
     private var trapNote = 0
     private var park = false
     private var rings = BooleanArray(5)
+    private var defense = false
     private var shootingDistanceBar = 0
     private var teamNumber = 0
     private var matchNumber = 0
@@ -157,6 +158,10 @@ class MatchScoutingFragment : Fragment()  {
             rings[4] = binding.ring5?.isChecked == true
         }
 
+        binding.defense?.setOnClickListener {
+            defense = binding.defense?.isChecked == true
+        }
+
         binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 // here, you react to the value being set in seekBar
@@ -186,6 +191,7 @@ class MatchScoutingFragment : Fragment()  {
             }
         }
 
+
         binding.scoutName?.text = scoutName
         binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
         binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
@@ -208,6 +214,7 @@ class MatchScoutingFragment : Fragment()  {
                 ring3 = rings[2],
                 ring4 = rings[3],
                 ring5 = rings[4],
+                defense = defense,
                 shootingDistanceBar = shootingDistanceBar,
                 teamNumber = teamNumber,
                 matchNumber = matchNumber,
@@ -250,6 +257,7 @@ class MatchScoutingFragment : Fragment()  {
         park = false
         binding.park?.isChecked = false
         rings = BooleanArray(5)
+        defense = false
         binding.ring1?.isChecked = false
         binding.ring2?.isChecked = false
         binding.ring3?.isChecked = false
