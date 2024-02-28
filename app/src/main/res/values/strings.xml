@@ -56,4 +56,27 @@
     <string name="team_number_hint">Team Number</string>
     <string name="match_number_hint">Match Number</string>
     <string name="bottom">BOTTOM</string>
+    <string name="blue_melody">Blue Melody</string>
+    <string name="submit_alliance">Submit</string>
+    <string name="blue_alliance_notes">Blue Alliance Notes</string>
+    <string name="team_1">Team #1</string>
+    <string name="team_2">Team#2</string>
+    <string name="amp">amp +</string>
+    <string name="coopertition_blue">Coopertition Blue</string>
+    <string name="harmony_blue">harmony blue</string>
+    <string name="michael_team_1">Michael team 1</string>
+    <string name="red_alliance">Red Alliance</string>
+    <string name="name">Name</string>
+    <string name="name_three">Name</string>
+    <string name="name_two">Name</string>
+    <string name="michael_o_meter">Michael_O_Meter</string>
+    <string name="team_3">Team #3</string>
+    <string name="red_alliance_notes">Red Alliance Notes</string>
+    <string name="michael_o_meter_red">Michael_O_Meter</string>
+    <string name="team_1_red">Team #1</string>
+    <string name="team_2_red">Team#2</string>
+    <string name="name_one">Name</string>
+    <string name="name_two_red">Name</string>
+    <string name="name_three_red">Name</string>
+    <string name="team_3_red">Team #3</string>
 </resources>
