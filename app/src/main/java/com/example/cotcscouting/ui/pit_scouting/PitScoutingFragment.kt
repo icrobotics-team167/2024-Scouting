@@ -37,6 +37,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -197,7 +198,10 @@ class PitScoutingFragment : Fragment() {
     }
 
     // TODO: THIS FUNCTION SHOULDN'T RETURN ANYTHING THAT'S WHAT'S CAUSING THE PROBLEM. MY LOVELY FOCUS LISTENER LIVES ONCE AGAIN!!!!!!!
-    /*fun focusListenerString(textBoxID : EditText?): String {
+    /**
+     * My sweet child which unironically took me like 2 hours to make can work again. Soon... Soon....
+     * */
+    fun focusListenerString(textBoxID : EditText?): String {
         var answer = ""
         val originalText = textBoxID?.text
 
@@ -222,5 +226,5 @@ class PitScoutingFragment : Fragment() {
         }
 
         return answer
-    }*/
+    }
 }
