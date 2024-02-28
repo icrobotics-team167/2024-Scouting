@@ -36,7 +36,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -70,76 +70,29 @@ class PitScoutingFragment : Fragment() {
             }
         }
 
-        var startingArea = ArrayList<String>()
-
-        binding.doesMatter?.setOnClickListener {
-            startingArea.clear()
-            startingArea.add("All")
-            binding.left?.isChecked = false
-            binding.right?.isChecked = false
-            binding.center?.isChecked = false
-        }
-
-        // I don't like that I repeat the same if loop 3 times.
-        binding.left?.setOnClickListener {
-            if(startingArea.contains("Both")) {
-                startingArea.removeAt(startingArea.indexOf("Both"))
-            }
-            binding.doesMatter?.isChecked = false
-            startingArea.add("Left")
-        }
-        binding.right?.setOnClickListener {
-            if(startingArea.contains("Both")) {
-                startingArea.removeAt(startingArea.indexOf("Both"))
-            }
-            binding.doesMatter?.isChecked = false
-            startingArea.add("Right")
-        }
-        binding.center?.setOnClickListener {
-            if(startingArea.contains("Both")) {
-                startingArea.removeAt(startingArea.indexOf("Both"))
-            }
-            binding.doesMatter?.isChecked = false
-            startingArea.add("Center")
-        }
+        var startingAreaOptions = ArrayList<CheckBox?>()
+        startingAreaOptions.add(binding.left)
+        startingAreaOptions.add(binding.right)
+        startingAreaOptions.add(binding.center)
+        setOnClickCheckBoxes(binding.doesMatter, startingAreaOptions)
 
 
-        var scoreArea = "NO ANSWER"
-
-        binding.ampAndSpeaker?.setOnClickListener {
-            scoreArea = "Both"
-            binding.amp?.isChecked = false
-            binding.speaker?.isChecked = false
-        }
-        binding.amp?.setOnClickListener {
-            scoreArea = "Amp"
-            binding.speaker?.isChecked = false
-            binding.ampAndSpeaker?.isChecked = false
-        }
-        binding.speaker?.setOnClickListener {
-            scoreArea = "Speaker"
-            binding.amp?.isChecked = false
-            binding.ampAndSpeaker?.isChecked = false
-        }
+        var scoreAreaOptions = ArrayList<CheckBox?>()
+        scoreAreaOptions.add(binding.amp)
+        scoreAreaOptions.add(binding.speaker)
+        setOnClickCheckBoxesOneAnswer(binding.ampAndSpeaker, scoreAreaOptions)
 
 
-        var intake = "NO ANSWER"
+        var intakeOptions = ArrayList<CheckBox?>()
+        scoreAreaOptions.add(binding.ground)
+        scoreAreaOptions.add(binding.source)
+        setOnClickCheckBoxes(binding.groundAndSource, intakeOptions)
 
-        binding.groundAndSource?.setOnClickListener {
-            intake = "Both"
-            binding.ground?.isChecked = false
-            binding.source?.isChecked = false
-        }
-        binding.ground?.setOnClickListener {
-            intake = "Ground"
-            binding.source?.isChecked = false
-            binding.groundAndSource?.isChecked = false
-        }
-        binding.source?.setOnClickListener {
-            intake = "Source"
-            binding.ground?.isChecked = false
-            binding.groundAndSource?.isChecked = false
-        }
+        var farthestShotOptions = ArrayList<CheckBox?>()
+        farthestShotOptions.add(binding.againstSubwoofer)
+        farthestShotOptions.add(binding.againstPodium)
+        farthestShotOptions.add(binding.againstPodium)
+        setOnClickCheckBoxes(binding.wooferPodiumAndWing, farthestShotOptions)
 
         binding.submit?.setOnClickListener {
             val pit = Pit(
@@ -149,16 +102,16 @@ class PitScoutingFragment : Fragment() {
                 driveCoachName = binding.coachAnswer?.text.toString(),
                 driveBase = binding.driveBaseAnswer?.text.toString(),
                 rookieTeam = binding.rookieTeam?.isChecked,
-                howManyAutos = Integer.decode(binding.autoCount?.text.toString()),
+                howManyAutos = Integer.decode(binding.autoCountNumber?.text.toString()),
                 hasAuto = binding.hasAuto?.isChecked,
                 doesPreload = binding.doesPreload?.isChecked,
                 doesShoot = binding.doesShoot?.isChecked,
                 doesIntake = binding.doesIntake?.isChecked,
-                whereDoYouStart = startingArea.toString(),
-                whereDoYouScore = scoreArea,
-                notesScoreCount = Integer.decode(binding.scoreAuto?.text.toString()),
-                gameStrategy = binding.gameStrategy?.text.toString(),
-                intake = intake
+                whereDoYouStart = checkCheckBoxes(binding.doesMatter, startingAreaOptions),
+                whereDoYouScore = checkCheckBoxes(binding.ampAndSpeaker, scoreAreaOptions),
+                notesScoreCount = Integer.decode(binding.scoreCountAuto?.text.toString()),
+                gameStrategy = binding.gameStrategyAnswer?.text.toString(),
+                intake = checkCheckBoxes(binding.groundAndSource, intakeOptions)
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.pitDAO()?.insert(pit)
@@ -171,7 +124,77 @@ class PitScoutingFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    fun focusListenerString(textBoxID : EditText?): String {
+
+
+    /**
+     * Set an on click listen for the all box and all the other options.
+     * @param all The checkbox which means all
+     * @param otherOptionCheckBoxes all other options
+     * */
+    fun setOnClickCheckBoxes(all : CheckBox?, otherOptionCheckBoxes: List<CheckBox?>) {
+        all?.setOnClickListener {
+            for(option: CheckBox? in otherOptionCheckBoxes) {
+                option?.isChecked = false
+            }
+        }
+        for(option: CheckBox? in otherOptionCheckBoxes) {
+            option?.setOnClickListener {
+                all?.isChecked = false
+            }
+        }
+    }
+
+    /**
+     * Set an on click listen for the all box and all the other options. If two options are clicked the previous option is unchecked
+     * @param all The checkbox which means all
+     * @param otherOptionCheckBoxes all other options
+     * */
+    fun setOnClickCheckBoxesOneAnswer(all: CheckBox?, otherOptionCheckBoxes: List<CheckBox?>){
+        all?.setOnClickListener {
+            for(option: CheckBox? in otherOptionCheckBoxes) {
+                option?.isChecked = false
+            }
+        }
+        for(option: CheckBox? in otherOptionCheckBoxes) {
+            option?.setOnClickListener {
+                for(optionsAgain : CheckBox? in otherOptionCheckBoxes) {
+                    if(option != optionsAgain) { // In case optionsAgain is the same object as option
+                        optionsAgain?.isChecked = false
+                    }
+                }
+                all?.isChecked = false
+            }
+        }
+    }
+
+    /**
+     * Finds what checkboxes have been clicked
+     * @param all The checkbox which means all
+     * @param otherOptionCheckBoxes all other options
+     * */
+    fun checkCheckBoxes(all : CheckBox?, otherOptionCheckBoxes: List<CheckBox?>): String {
+        var answer = ArrayList<String>()
+        var count = 0;
+
+        if(all?.isChecked == true) {
+            return "All"
+        }
+        for(option : CheckBox? in otherOptionCheckBoxes) {
+            if(option?.isChecked == true) {
+                count++
+                answer.add(option?.text.toString())
+            }
+        }
+
+        if(count == otherOptionCheckBoxes.size) {
+            return "All"
+        }
+
+        return answer.toString();
+    }
+
+    // TODO: THIS FUNCTION SHOULDN'T RETURN ANYTHING THAT'S WHAT'S CAUSING THE PROBLEM. MY LOVELY FOCUS LISTENER LIVES ONCE AGAIN!!!!!!!
+    /*fun focusListenerString(textBoxID : EditText?): String {
         var answer = ""
         val originalText = textBoxID?.text
 
@@ -196,5 +219,5 @@ class PitScoutingFragment : Fragment() {
         }
 
         return answer
-    }
+    }*/
 }
