@@ -76,16 +76,14 @@ class PitScoutingFragment : Fragment() {
         startingAreaOptions.add(binding.center)
         setOnClickCheckBoxes(binding.doesMatter, startingAreaOptions)
 
-
         var scoreAreaOptions = ArrayList<CheckBox?>()
         scoreAreaOptions.add(binding.amp)
         scoreAreaOptions.add(binding.speaker)
         setOnClickCheckBoxesOneAnswer(binding.ampAndSpeaker, scoreAreaOptions)
 
-
         var intakeOptions = ArrayList<CheckBox?>()
-        scoreAreaOptions.add(binding.ground)
-        scoreAreaOptions.add(binding.source)
+        intakeOptions.add(binding.ground)
+        intakeOptions.add(binding.source)
         setOnClickCheckBoxes(binding.groundAndSource, intakeOptions)
 
         var farthestShotOptions = ArrayList<CheckBox?>()
@@ -111,12 +109,17 @@ class PitScoutingFragment : Fragment() {
                 whereDoYouScore = checkCheckBoxes(binding.ampAndSpeaker, scoreAreaOptions),
                 notesScoreCount = Integer.decode(binding.scoreCountAuto?.text.toString()),
                 gameStrategy = binding.gameStrategyAnswer?.text.toString(),
-                intake = checkCheckBoxes(binding.groundAndSource, intakeOptions)
+                intake = checkCheckBoxes(binding.groundAndSource, intakeOptions),
+                farthestShot = checkCheckBoxes(binding.wooferPodiumAndWing, farthestShotOptions),
+                doesClimb = binding.canClimb?.isChecked,
+                climbTime = Integer.decode(binding.climbTimeAnswer?.text.toString()),
+                canHarmony = binding.canGetHarmony?.isChecked,
+                canScoreTrap = binding.canScoreTrap?.isChecked
+
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.pitDAO()?.insert(pit)
         }
-
 
         return root
     }

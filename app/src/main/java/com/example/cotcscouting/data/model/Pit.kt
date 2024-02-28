@@ -21,10 +21,10 @@ data class Pit(
     @ColumnInfo(name = "where_do_you_score") val whereDoYouScore: String,
     @ColumnInfo(name = "notes_score_count") val notesScoreCount: Int?,
     @ColumnInfo(name = "game_strategy") val gameStrategy: String?,
-    @ColumnInfo(name = "intake") val intake: String?/*,
+    @ColumnInfo(name = "intake") val intake: String?,
     @ColumnInfo(name = "farthest_shot") val farthestShot: String?,
     @ColumnInfo(name = "does_climb") val doesClimb: Boolean?,
     @ColumnInfo(name = "climb_time") val climbTime: Int?,
     @ColumnInfo(name = "can_harmony") val canHarmony: Boolean?,
-    @ColumnInfo(name = "can_score_trap") val canScoreTrap: Boolean?*/
+    @ColumnInfo(name = "can_score_trap") val canScoreTrap: Boolean?
 )
