@@ -28,7 +28,7 @@
                 android:layout_width="146dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Submit" />
+                android:text="@string/submit_alliance" />
 
             <EditText
                 android:id="@+id/red_alliance"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Red Alliance" />
+                android:text="@string/red_alliance" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,6 +52,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -86,6 +87,7 @@
                                 android:id="@+id/blue_amps_inc"
                                 android:layout_width="78dp"
                                 android:layout_height="wrap_content"
+                                android:contentDescription="@string/amp"
                                 android:text="@string/inc_button" />
 
                         </LinearLayout>
@@ -101,6 +103,7 @@
                                 android:layout_height="20dp"
                                 android:layout_weight="1"
                                 android:text="@string/coopertition"
+                                android:contentDescription="@string/coopertition_blue"
                                 tools:ignore="NestedWeights" />
                         </LinearLayout>
 
@@ -114,6 +117,7 @@
                                 android:layout_width="158dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:contentDescription="@string/blue_melody"
                                 android:text="@string/melody" />
 
                             <TextView
@@ -154,6 +158,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="20dp"
                                 android:layout_weight="1"
+                                android:contentDescription="@string/harmony_blue"
                                 android:text="@string/harmony" />
 
                             <TextView
@@ -176,7 +181,7 @@
                             android:id="@+id/michael_o_meter"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Michael_O_Meter" />
+                            android:text="@string/michael_o_meter" />
 
                         <LinearLayout
                             android:layout_width="183dp"
@@ -192,22 +197,22 @@
                                     android:id="@+id/michael_one"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team #1"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_1"
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/michael_two"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team#2"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_2"
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/michael_three"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team #3"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_3"
+                                    android:textSize="20sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -221,8 +226,9 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name"
+                                    android:contentDescription="@string/michael_team_1"
+                                    android:textSize="11sp" />
 
                                 <EditText
                                     android:id="@+id/michael_text_two"
@@ -230,8 +236,8 @@
                                     android:layout_height="35dp"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name_two"
+                                    android:textSize="11sp" />
 
                                 <EditText
                                     android:id="@+id/michael_text_three"
@@ -239,8 +245,8 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name_three"
+                                    android:textSize="11sp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -257,6 +263,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -381,7 +388,7 @@
                             android:id="@+id/red_michael_o_meter"
                             android:layout_width="177dp"
                             android:layout_height="wrap_content"
-                            android:text="Michael_O_Meter" />
+                            android:text="@string/michael_o_meter_red" />
 
                         <LinearLayout
                             android:layout_width="183dp"
@@ -397,22 +404,22 @@
                                     android:id="@+id/red_michael_one"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team #1"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_1_red"
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/red_michael_two"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team#2"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_2_red"
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/red_michael_three"
                                     android:layout_width="match_parent"
                                     android:layout_height="38dp"
-                                    android:text="Team #3"
-                                    android:textSize="20dp" />
+                                    android:text="@string/team_3_red"
+                                    android:textSize="20sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -426,8 +433,8 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name_one"
+                                    android:textSize="11sp" />
 
                                 <EditText
                                     android:id="@+id/red_michael_text_two"
@@ -435,8 +442,8 @@
                                     android:layout_height="35dp"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name_two_red"
+                                    android:textSize="11sp" />
 
                                 <EditText
                                     android:id="@+id/red_michael_text_three"
@@ -444,8 +451,8 @@
                                     android:layout_height="wrap_content"
                                     android:ems="10"
                                     android:inputType="text"
-                                    android:text="Name"
-                                    android:textSize="10dp" />
+                                    android:text="@string/name_three_red"
+                                    android:textSize="11sp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -468,7 +475,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Blue Alliance Notes" />
+                android:text="@string/blue_alliance_notes" />
 
             <EditText
                 android:id="@+id/redNotes"
@@ -476,7 +483,7 @@
                 android:layout_height="226dp"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Red Alliance Notes" />
+                android:text="@string/red_alliance_notes" />
         </LinearLayout>
 
     </LinearLayout>

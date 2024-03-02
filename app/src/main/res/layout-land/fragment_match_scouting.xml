@@ -83,7 +83,7 @@
                     android:id="@+id/leave"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="5"
+                    android:layout_weight="4"
                     android:text="@string/leave" />
 
                 <TextView
@@ -139,6 +139,13 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/ring_5"
                         android:text="" />
+
+                    <TextView
+                        android:id="@+id/ring_bot"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/bottom" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -243,7 +250,7 @@
                     android:text="@string/parked" />
 
                 <CheckBox
-                    android:id="@+id/defence"
+                    android:id="@+id/defense"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="7.5"
