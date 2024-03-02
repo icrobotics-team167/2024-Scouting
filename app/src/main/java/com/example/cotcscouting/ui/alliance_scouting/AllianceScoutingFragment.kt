@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.cotcscouting.data.model.Alliance
+import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.databinding.FragmentAllianceScoutingBinding
 
 class AllianceScoutingFragment : Fragment() {
@@ -22,6 +24,28 @@ class AllianceScoutingFragment : Fragment() {
     ): View {
         _binding = FragmentAllianceScoutingBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
+
+        var blueNotes = ""
+        binding.blueNotes.setOnClickListener {
+            blueNotes = binding.blueNotes.text.toString()
+        }
+
+        var michaelTextOne = ""
+        binding.michaelTextOne.setOnClickListener {
+            michaelTextOne = binding.michaelTextOne.text.toString()
+        }
+
+        var michaelTextTwo = ""
+        binding.michaelTextTwo.setOnClickListener {
+            michaelTextTwo = binding.michaelTextTwo.text.toString()
+        }
+
+        var michaelTextThree = ""
+        binding.michaelTextThree.setOnClickListener {
+            michaelTextThree = binding.michaelTextThree.text.toString()
+        }
+
         var blueAmpsCount = 0
         binding.blueAmpsDec.setOnClickListener {
             if(blueAmpsCount > 0) {
@@ -34,40 +58,44 @@ class AllianceScoutingFragment : Fragment() {
             blueAmpsCount++
             binding.blueAmps.text = blueAmpsCount.toString()
         }
-        var blueCoOp = 0
+        var blueCoOp = false
         binding.blueCoOp.setOnClickListener {
-            blueCoOp = if(binding.blueCoOp.isChecked){
-                1
-            } else {
-                0
-            }
+            blueCoOp = binding.blueCoOp.isChecked
         }
 
-        var blueMelody = 0
+        var blueMelody = false
         binding.blueMelody.setOnClickListener {
-            blueMelody = if(binding.blueMelody.isChecked){
-                1
-            } else {
-                0
-            }
+            blueMelody = binding.blueMelody.isChecked
         }
 
-        var blueEnsamble = 0
+        var blueEnsamble = false
         binding.blueEnsamble.setOnClickListener {
-            blueEnsamble = if(binding.blueEnsamble.isChecked){
-                1
-            } else {
-                0
-            }
+            blueEnsamble = binding.blueEnsamble.isChecked
         }
 
-        var blueHarmony = 0
+        var blueHarmony = false
         binding.blueHarmony.setOnClickListener {
-            blueHarmony = if(binding.blueHarmony.isChecked){
-                1
-            } else {
-                0
-            }
+            blueHarmony = binding.blueHarmony.isChecked
+        }
+
+        var redNotes = ""
+        binding.redNotes.setOnClickListener {
+            redNotes = binding.redNotes.text.toString()
+        }
+
+        var redMichaelTextOne = ""
+        binding.redMichaelTextOne.setOnClickListener {
+            redMichaelTextOne = binding.redMichaelTextOne.text.toString()
+        }
+
+        var redMichaelTextTwo = ""
+        binding.redMichaelTextTwo.setOnClickListener {
+            redMichaelTextTwo = binding.redMichaelTextTwo.text.toString()
+        }
+
+        var redMichaelTextThree = ""
+        binding.redMichaelTextThree.setOnClickListener {
+            redMichaelTextThree = binding.redMichaelTextThree.text.toString()
         }
 
         var redAmpsCount = 0
@@ -83,45 +111,53 @@ class AllianceScoutingFragment : Fragment() {
             binding.redAmps.text = redAmpsCount.toString()
         }
 
-        var redCoOp = 0
+        var redCoOp = false
         binding.redCoOp.setOnClickListener {
-            redCoOp = if(binding.redCoOp.isChecked){
-                1
-            } else {
-                0
-            }
+            redCoOp = binding.redCoOp.isChecked
         }
 
-        var redMelody = 0
+        var redMelody = false
         binding.redMelody.setOnClickListener {
-            redMelody = if(binding.redMelody.isChecked){
-                1
-            } else {
-                0
-            }
+            redMelody = binding.redMelody.isChecked
         }
 
-        var redEnsamble = 0
+        var redEnsamble = false
         binding.redEnsamble.setOnClickListener {
-            redEnsamble = if(binding.redEnsamble.isChecked){
-                1
-            } else {
-                0
-            }
+            redEnsamble = binding.redEnsamble.isChecked
         }
 
-        var redHarmony = 0
+        var redHarmony = false
         binding.redHarmony.setOnClickListener {
-            redHarmony = if(binding.redHarmony.isChecked){
-                1
-            } else {
-                0
-            }
+            redHarmony = binding.redHarmony.isChecked
         }
 
         binding.allianceSubmit.setOnClickListener {
-            val submitValues = intArrayOf(blueAmpsCount, blueCoOp, blueMelody, blueEnsamble, blueHarmony, redAmpsCount, redCoOp, redMelody, redEnsamble, redHarmony)
-            println(binding.blueAlliance.text.toString() + " " + binding.redAlliance.text.toString() + " " + binding.blueNotes.text.toString() + " " + binding.redNotes.text.toString() + " " + submitValues[0] + " " + submitValues[1] + " " + submitValues[2] + " " + submitValues[3] + " " + submitValues[4] + " " + submitValues[5] + " " + submitValues[6] + " " + submitValues[7] + " " + submitValues[8] + " " + submitValues[9])
+            val alliance = Alliance(
+                0,
+                blueNotes = blueNotes,
+                blueAmpsCount = blueAmpsCount,
+                blueCoOp = blueCoOp,
+                blueMelody = blueMelody,
+                blueEnsamble = blueEnsamble,
+                blueHarmony = blueHarmony,
+                redNotes = redNotes,
+                redAmpsCount = redAmpsCount,
+                redCoOp = redCoOp,
+                redMelody = redMelody,
+                redEnsamble = redEnsamble,
+                redHarmony = redHarmony,
+                matchNumber = 0,
+                scoutName = "Calder",
+                regionalCode = "missouri",
+                michaelTextOne = michaelTextOne,
+                michaelTextTwo = michaelTextTwo,
+                michaelTextThree = michaelTextThree,
+                redMichaelTextOne = redMichaelTextOne,
+                redMichaelTextTwo = redMichaelTextTwo,
+                redMichaelTextThree = redMichaelTextThree,
+            )
+            println(blueNotes)
+            database?.allianceDAO()?.insert(alliance)
         }
         return root
     }
