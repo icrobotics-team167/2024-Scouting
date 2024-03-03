@@ -79,4 +79,5 @@
     <string name="name_two_red">Name</string>
     <string name="name_three_red">Name</string>
     <string name="team_3_red">Team #3</string>
+    <string name="assigned_scout">Assigned scout</string>
 </resources>

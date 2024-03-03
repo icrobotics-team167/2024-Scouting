@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "info")
 data class Info(
     @PrimaryKey(autoGenerate = true) val uid: Int,
-//    @ColumnInfo()
+    @ColumnInfo(name = "assigned_scout") val assignedScout: String,
+    @ColumnInfo(name = "username") val username: String
 )
 
 
