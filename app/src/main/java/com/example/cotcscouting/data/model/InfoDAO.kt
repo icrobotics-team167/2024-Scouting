@@ -13,8 +13,8 @@ interface InfoDAO {
     @Query("SELECT * FROM `info` WHERE uid IN (:infoIds)")
     fun loadAllByIds(infoIds: IntArray): List<Info>
 
-    @Query("SELECT * FROM `info` WHERE team_number LIKE :teamNumber LIMIT 1")
-    fun findByTeamNumber(teamNumber: Int): Info
+    @Query("SELECT * FROM `info` WHERE assigned_student LIKE :assigned_student LIMIT 1")
+    fun findByTeamNumber(assignedStudent: Int): Info
 
     @Insert
     fun insertAll(vararg infos: Info)

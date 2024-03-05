@@ -5,13 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Match::class, Alliance::class, Pit::class, Info::class], version = 1, exportSchema = true)
+@Database(entities = [Match::class, Alliance::class, Pit::class], version = 1, exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun matchDAO(): MatchDAO
     abstract fun allianceDAO(): AllianceDAO
     abstract fun pitDAO(): PitDAO // Talk to Madison about PitDAO
 
-    abstract fun infoDAO(): InfoDAO
+//    abstract fun infoDAO(): InfoDAO
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
