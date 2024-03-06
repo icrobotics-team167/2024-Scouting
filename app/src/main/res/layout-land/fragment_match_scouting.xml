@@ -160,7 +160,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:contentDescription="@string/auto_amp_decrease"
-                    android:text="@string/dec_button" />
+                    android:text="@string/dec_button"
+                    android:textColor="#69F0AE" />
 
                 <TextView
                     android:id="@+id/amp_note_auto_text"
@@ -197,7 +198,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:contentDescription="@string/auto_speaker_decrease"
-                    android:text="@string/dec_button" />
+                    android:text="@string/dec_button"
+                    android:textColor="#69F0AE" />
 
                 <TextView
                     android:id="@+id/speaker_note_auto_text"
@@ -345,7 +347,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:contentDescription="@string/teleop_amp_decrease"
-                    android:text="@string/dec_button" />
+                    android:text="@string/dec_button"
+                    android:textColor="#69F0AE" />
 
                 <TextView
                     android:id="@+id/amp_note_tele_op_text"
@@ -382,7 +385,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:contentDescription="@string/teleop_speaker_decrease"
-                    android:text="@string/dec_button" />
+                    android:text="@string/dec_button"
+                    android:textColor="#69F0AE" />
 
                 <TextView
                     android:id="@+id/tele_op_speaker_text"
@@ -418,7 +422,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:text="@string/dec_button" />
+                    android:text="@string/dec_button"
+                    android:textColor="#69F0AE" />
 
                 <TextView
                     android:id="@+id/amp_speaker_note_text"

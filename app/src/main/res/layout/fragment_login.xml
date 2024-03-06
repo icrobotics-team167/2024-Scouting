@@ -18,9 +18,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
+        android:autofillHints="@string/username"
         android:hint="@string/username"
         android:inputType="text"
-        android:textSize="40dp" />
+        android:textColorHint="#A1887F"
+        android:textSize="40sp" />
 
     <EditText
         android:id="@+id/assigned_scout"
@@ -30,9 +32,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
+        android:autofillHints="@string/assigned_scout"
         android:hint="@string/assigned_scout"
         android:inputType="text"
-        android:textSize="40dp" />
+        android:textColorHint="#A1887F"
+        android:textSize="40sp" />
 
 
 

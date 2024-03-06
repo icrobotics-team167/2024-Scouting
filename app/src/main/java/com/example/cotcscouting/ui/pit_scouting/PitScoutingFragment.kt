@@ -87,7 +87,6 @@ class PitScoutingFragment : Fragment() {
                 climbTime = Integer.decode(binding.climbTimeAnswer?.text.toString()),
                 canHarmony = binding.canGetHarmony?.isChecked,
                 canScoreTrap = binding.canScoreTrap?.isChecked
-
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.pitDAO()?.insert(pit)
