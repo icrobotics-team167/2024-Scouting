@@ -1,5 +1,6 @@
 package com.example.cotcscouting.ui.match_scouting
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -190,8 +191,9 @@ class MatchScoutingFragment : Fragment()  {
                 teamNumber = Integer.parseInt(teamEditable.text.toString())
             }
         }
-
-
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        scoutName = sharedPref.getString("scout_name", "Scout").toString()
+        scoutingAssignment = sharedPref.getString("scout_assignment", "Red 1").toString()
         binding.scoutName?.text = scoutName
         binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
         binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
@@ -224,6 +226,7 @@ class MatchScoutingFragment : Fragment()  {
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.matchDAO()?.insert(match)
             matchNumber++
+            sharedPref.edit().putInt("match_number", matchNumber).apply()
             binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
             clearFields()
         }
