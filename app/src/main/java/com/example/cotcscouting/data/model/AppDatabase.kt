@@ -11,8 +11,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun allianceDAO(): AllianceDAO
     abstract fun pitDAO(): PitDAO // Talk to Madison about PitDAO
 
-//    abstract fun infoDAO(): InfoDAO
-
     companion object {
         // Singleton prevents multiple instances of database opening at the
         // same time.

@@ -1,5 +1,6 @@
 package com.example.cotcscouting.ui.alliance_scouting
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -131,6 +132,7 @@ class AllianceScoutingFragment : Fragment() {
             redHarmony = binding.redHarmony.isChecked
         }
 
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.allianceSubmit.setOnClickListener {
             val alliance = Alliance(
                 0,
@@ -146,8 +148,8 @@ class AllianceScoutingFragment : Fragment() {
                 redMelody = redMelody,
                 redEnsamble = redEnsamble,
                 redHarmony = redHarmony,
-                matchNumber = 0,
-                scoutName = "Calder",
+                matchNumber = sharedPref.getInt("match_number", 0),
+                scoutName = sharedPref.getString("scout_name", "Scout").toString(),
                 regionalCode = "missouri",
                 michaelTextOne = michaelTextOne,
                 michaelTextTwo = michaelTextTwo,
@@ -156,7 +158,6 @@ class AllianceScoutingFragment : Fragment() {
                 redMichaelTextTwo = redMichaelTextTwo,
                 redMichaelTextThree = redMichaelTextThree,
             )
-            println(blueNotes)
             database?.allianceDAO()?.insert(alliance)
         }
         return root
