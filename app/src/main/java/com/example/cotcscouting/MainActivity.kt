@@ -1,13 +1,15 @@
+
+
 package com.example.cotcscouting
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cotcscouting.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,11 +26,13 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
+        AppBarConfiguration(
             setOf(
                 R.id.navigation_blue_alliance, R.id.navigation_match_scouting, R.id.navigation_pit_scouting, R.id.navigation_alliance_scouting
             )
         )
         navView.setupWithNavController(navController)
+            LoginFragment().show(supportFragmentManager, "login_fragment")
     }
+
 }

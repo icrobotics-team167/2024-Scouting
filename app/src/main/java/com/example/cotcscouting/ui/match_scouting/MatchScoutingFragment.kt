@@ -1,5 +1,6 @@
 package com.example.cotcscouting.ui.match_scouting
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ class MatchScoutingFragment : Fragment()  {
     private var trapNote = 0
     private var park = false
     private var rings = BooleanArray(5)
+    private var defense = false
     private var shootingDistanceBar = 0
     private var teamNumber = 0
     private var matchNumber = 0
@@ -157,6 +159,10 @@ class MatchScoutingFragment : Fragment()  {
             rings[4] = binding.ring5?.isChecked == true
         }
 
+        binding.defense?.setOnClickListener {
+            defense = binding.defense?.isChecked == true
+        }
+
         binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 // here, you react to the value being set in seekBar
@@ -185,7 +191,9 @@ class MatchScoutingFragment : Fragment()  {
                 teamNumber = Integer.parseInt(teamEditable.text.toString())
             }
         }
-
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        scoutName = sharedPref.getString("scout_name", "Scout").toString()
+        scoutingAssignment = sharedPref.getString("scout_assignment", "Red 1").toString()
         binding.scoutName?.text = scoutName
         binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
         binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
@@ -208,6 +216,7 @@ class MatchScoutingFragment : Fragment()  {
                 ring3 = rings[2],
                 ring4 = rings[3],
                 ring5 = rings[4],
+                defense = defense,
                 shootingDistanceBar = shootingDistanceBar,
                 teamNumber = teamNumber,
                 matchNumber = matchNumber,
@@ -217,6 +226,7 @@ class MatchScoutingFragment : Fragment()  {
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.matchDAO()?.insert(match)
             matchNumber++
+            sharedPref.edit().putInt("match_number", matchNumber).apply()
             binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
             clearFields()
         }
@@ -250,6 +260,7 @@ class MatchScoutingFragment : Fragment()  {
         park = false
         binding.park?.isChecked = false
         rings = BooleanArray(5)
+        defense = false
         binding.ring1?.isChecked = false
         binding.ring2?.isChecked = false
         binding.ring3?.isChecked = false
