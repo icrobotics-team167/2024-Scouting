@@ -104,18 +104,6 @@ class MatchScoutingFragment : Fragment()  {
             binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
         }
 
-        binding.ampSpeakerNoteDec?.setOnClickListener {
-            if(ampSpeakerCount > 0) {
-                ampSpeakerCount--
-            }
-            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
-        }
-
-        binding.ampSpeakerNoteInc?.setOnClickListener {
-            ampSpeakerCount++
-            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
-        }
-
         binding.leave?.setOnClickListener {
             leave = binding.leave?.isChecked == true
         }
@@ -137,26 +125,6 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.park?.setOnClickListener {
             park = binding.park?.isChecked == true
-        }
-
-        binding.ring1?.setOnClickListener {
-            rings[0] = binding.ring1?.isChecked == true
-        }
-
-        binding.ring2?.setOnClickListener {
-            rings[1] = binding.ring2?.isChecked == true
-        }
-
-        binding.ring3?.setOnClickListener {
-            rings[2] = binding.ring3?.isChecked == true
-        }
-
-        binding.ring4?.setOnClickListener {
-            rings[3] = binding.ring4?.isChecked == true
-        }
-
-        binding.ring5?.setOnClickListener {
-            rings[4] = binding.ring5?.isChecked == true
         }
 
         binding.defense?.setOnClickListener {
@@ -248,7 +216,6 @@ class MatchScoutingFragment : Fragment()  {
         teleOpSpeakerCount = 0
         binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
         ampSpeakerCount = 0
-        binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
         leave = false
         binding.leave?.isChecked = false
         onStage = false
@@ -261,11 +228,6 @@ class MatchScoutingFragment : Fragment()  {
         binding.park?.isChecked = false
         rings = BooleanArray(5)
         defense = false
-        binding.ring1?.isChecked = false
-        binding.ring2?.isChecked = false
-        binding.ring3?.isChecked = false
-        binding.ring4?.isChecked = false
-        binding.ring5?.isChecked = false
         shootingDistanceBar = 1
         binding.shootingDistanceBar?.progress = 0
     }
