@@ -5,10 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.SeekBar
+import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.cotcscouting.R
 import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
@@ -189,6 +194,24 @@ class MatchScoutingFragment : Fragment()  {
             val teamEditable = binding.teamNumber
             if (teamEditable != null) {
                 teamNumber = Integer.parseInt(teamEditable.text.toString())
+            }
+        }
+
+        val spinner = binding.scout_assignment
+
+        val spinnerItems = resources.getStringArray(R.array.teams_array)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedItem = spinnerItems[position]
+                Toast.makeText(context, "Selected item: $selectedItem", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do nothing
             }
         }
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
