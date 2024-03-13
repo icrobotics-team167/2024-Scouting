@@ -4,15 +4,14 @@
     <string name="title_pit_scouting">Pit Scouting</string>
     <string name="title_match_scouting">Match Scouting</string>
     <string name="auto">Auto</string>
-    <string name="amp_notes"> Amp Notes:</string>
-    <string name="speaker_notes"> Speaker Notes:</string>
+    <string name="amp_notes"> Amp:</string>
+    <string name="speaker_notes"> Speaker:</string>
     <string name="leave">Leave</string>
     <string name="endgame_human_player">Endgame</string>
     <string name="tele_op">Tele-Op</string>
-    <string name="amplified_speaker_notes"> Amplified Speaker Notes: </string>
     <string name="on_stage">On Stage</string>
     <string name="on_stage_spotlit">On Stage (Spotlit)</string>
-    <string name="trap_note">Trap Note</string>
+    <string name="trap_note">Trap</string>
     <string name="high_ring_on_pole_over_chain">High Ring on pole over chain</string>
     <string name="amplifiers">Amplifiers: </string>
     <string name="coopertition">Coopertition</string>
@@ -28,10 +27,9 @@
     <string name="submit">Submit</string>
     <string name="title_alliance_scouting">Alliance Scouting</string>
     <string name="blue_alliance">Blue Alliance</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="username">Username</string>
-    <string name="assigned_student">Assigned Student</string>
+    <string name="team">Team</string>
     <string name="rings">Rings:</string>
     <string name="defense">Defense</string>
     <string name="shooting_distance_sp_iw_ow_po">Shooting distance: SPEAKER  |  INNERWING  |  OUTERWING  |  PODIUM</string>
@@ -44,18 +42,12 @@
     <string name="auto_speaker_decrease">Auto Speaker Decrease</string>
     <string name="teleop_amp_decrease">TeleOp Amp Decrease</string>
     <string name="teleop_speaker_decrease">TeleOp Speaker Decrease</string>
-    <string name="ring_1">Ring 1</string>
-    <string name="ring_2">Ring 2</string>
-    <string name="ring_3">Ring 3</string>
-    <string name="ring_4">Ring 4</string>
-    <string name="ring_5">Ring 5</string>
     <string name="scout_name">Scout Name:</string>
     <string name="match_number">Match Number:</string>
     <string name="scouting">Scouting Assignment:</string>
     <string name="team_number">Team Number:</string>
     <string name="team_number_hint">Team Number</string>
     <string name="match_number_hint">Match Number</string>
-    <string name="bottom">BOTTOM</string>
     <string name="blue_melody">Blue Melody</string>
     <string name="submit_alliance">Submit</string>
     <string name="blue_alliance_notes">Blue Alliance Notes</string>
@@ -69,7 +61,7 @@
     <string name="name">Name</string>
     <string name="name_three">Name</string>
     <string name="name_two">Name</string>
-    <string name="michael_o_meter">Michael_O_Meter</string>
+    <string name="michael_o_meter">Michael-O-Meter</string>
     <string name="team_3">Team #3</string>
     <string name="red_alliance_notes">Red Alliance Notes</string>
     <string name="michael_o_meter_red">Michael_O_Meter</string>
@@ -117,4 +109,11 @@
     <string name="do_you_shoot">Do you shoot?</string>
     <string name="do_you_preload">Do you preload?</string>
     <string name="do_you_have_an_auto">Do you have an auto?</string>
+    <string name="notes">Notes</string>
+    <string name="notes_about_match">Notes about match</string>
+    <string name="other_factors">Other Factors</string>
+    <string name="robot_died_was_disabled">Robot Died/Was Disabled</string>
+    <string name="top_ranked_team">Top Ranked Team:</string>
+    <string name="mid_ranked_team">Mid-Ranked Team:</string>
+    <string name="bottom_ranked_team">Bottom Ranked Team:</string>
 </resources>

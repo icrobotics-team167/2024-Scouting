@@ -5,15 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.SeekBar
-import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.cotcscouting.R
 import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
@@ -109,18 +104,6 @@ class MatchScoutingFragment : Fragment()  {
             binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
         }
 
-        binding.ampSpeakerNoteDec?.setOnClickListener {
-            if(ampSpeakerCount > 0) {
-                ampSpeakerCount--
-            }
-            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
-        }
-
-        binding.ampSpeakerNoteInc?.setOnClickListener {
-            ampSpeakerCount++
-            binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
-        }
-
         binding.leave?.setOnClickListener {
             leave = binding.leave?.isChecked == true
         }
@@ -142,26 +125,6 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.park?.setOnClickListener {
             park = binding.park?.isChecked == true
-        }
-
-        binding.ring1?.setOnClickListener {
-            rings[0] = binding.ring1?.isChecked == true
-        }
-
-        binding.ring2?.setOnClickListener {
-            rings[1] = binding.ring2?.isChecked == true
-        }
-
-        binding.ring3?.setOnClickListener {
-            rings[2] = binding.ring3?.isChecked == true
-        }
-
-        binding.ring4?.setOnClickListener {
-            rings[3] = binding.ring4?.isChecked == true
-        }
-
-        binding.ring5?.setOnClickListener {
-            rings[4] = binding.ring5?.isChecked == true
         }
 
         binding.defense?.setOnClickListener {
@@ -194,24 +157,6 @@ class MatchScoutingFragment : Fragment()  {
             val teamEditable = binding.teamNumber
             if (teamEditable != null) {
                 teamNumber = Integer.parseInt(teamEditable.text.toString())
-            }
-        }
-
-        val spinner = binding.scout_assignment
-
-        val spinnerItems = resources.getStringArray(R.array.teams_array)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerItems)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                val selectedItem = spinnerItems[position]
-                Toast.makeText(context, "Selected item: $selectedItem", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Do nothing
             }
         }
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
@@ -271,7 +216,6 @@ class MatchScoutingFragment : Fragment()  {
         teleOpSpeakerCount = 0
         binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
         ampSpeakerCount = 0
-        binding.ampSpeakerNote?.text = ampSpeakerCount.toString()
         leave = false
         binding.leave?.isChecked = false
         onStage = false
@@ -284,11 +228,6 @@ class MatchScoutingFragment : Fragment()  {
         binding.park?.isChecked = false
         rings = BooleanArray(5)
         defense = false
-        binding.ring1?.isChecked = false
-        binding.ring2?.isChecked = false
-        binding.ring3?.isChecked = false
-        binding.ring4?.isChecked = false
-        binding.ring5?.isChecked = false
         shootingDistanceBar = 1
         binding.shootingDistanceBar?.progress = 0
     }

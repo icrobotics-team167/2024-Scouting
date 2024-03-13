@@ -15,7 +15,31 @@ class AllianceScoutingFragment : Fragment() {
     private var _binding: FragmentAllianceScoutingBinding? = null
     
     private val binding get() = _binding!!
-
+    private val newAlliance = Alliance(
+        uid = 0,
+        blueNotes= "",
+        blueAmpCount= 0,
+        blueCoOp= false,
+        blueMelody= false,
+        blueEnsamble= false,
+        blueHarmony= false,
+        redNotes= "",
+        redAmpCount= 0,
+        redCoOp= false,
+        redMelody= false,
+        redEnsamble= false,
+        redHarmony= false,
+        matchNumber= 0,
+        scoutName= "",
+        regionalCode= "",
+        michaelRed1= "",
+        michaelRed2= "",
+        michaelRed3= "",
+        michaelBlue1= "",
+        michaelBlue2= "",
+        michaelBlue3= ""
+    )
+    private var activeAlliance = newAlliance
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,142 +47,94 @@ class AllianceScoutingFragment : Fragment() {
         savedInstanceState: Bundle?
         
     ): View {
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         _binding = FragmentAllianceScoutingBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
 
-        var blueNotes = ""
-        binding.blueNotes.setOnClickListener {
-            blueNotes = binding.blueNotes.text.toString()
+        binding.michaelRed1.setOnClickListener {
+            activeAlliance.michaelRed1 = binding.michaelRed1.text.toString()
         }
 
-        var michaelTextOne = ""
-        binding.michaelTextOne.setOnClickListener {
-            michaelTextOne = binding.michaelTextOne.text.toString()
+        binding.michaelRed2.setOnClickListener {
+            activeAlliance.michaelRed2 = binding.michaelRed2.text.toString()
         }
 
-        var michaelTextTwo = ""
-        binding.michaelTextTwo.setOnClickListener {
-            michaelTextTwo = binding.michaelTextTwo.text.toString()
+        binding.michaelRed3.setOnClickListener {
+            activeAlliance.michaelRed3 = binding.michaelRed3.text.toString()
         }
 
-        var michaelTextThree = ""
-        binding.michaelTextThree.setOnClickListener {
-            michaelTextThree = binding.michaelTextThree.text.toString()
-        }
-
-        var blueAmpsCount = 0
         binding.blueAmpsDec.setOnClickListener {
-            if(blueAmpsCount > 0) {
-                blueAmpsCount--
-            }
-            binding.blueAmps.text = blueAmpsCount.toString()
+            if(activeAlliance.blueAmpCount > 0) this.activeAlliance.blueAmpCount--
+            binding.blueAmps.text = activeAlliance.blueAmpCount.toString()
         }
 
         binding.blueAmpsInc.setOnClickListener {
-            blueAmpsCount++
-            binding.blueAmps.text = blueAmpsCount.toString()
+            activeAlliance.blueAmpCount++
+            binding.blueAmps.text = activeAlliance.blueAmpCount.toString()
         }
-        var blueCoOp = false
         binding.blueCoOp.setOnClickListener {
-            blueCoOp = binding.blueCoOp.isChecked
+            activeAlliance.blueCoOp = binding.blueCoOp.isChecked
         }
 
-        var blueMelody = false
         binding.blueMelody.setOnClickListener {
-            blueMelody = binding.blueMelody.isChecked
+            activeAlliance.blueMelody = binding.blueMelody.isChecked
         }
 
-        var blueEnsamble = false
         binding.blueEnsamble.setOnClickListener {
-            blueEnsamble = binding.blueEnsamble.isChecked
+            activeAlliance.blueEnsamble = binding.blueEnsamble.isChecked
         }
 
-        var blueHarmony = false
         binding.blueHarmony.setOnClickListener {
-            blueHarmony = binding.blueHarmony.isChecked
+            activeAlliance.blueHarmony = binding.blueHarmony.isChecked
         }
 
-        var redNotes = ""
-        binding.redNotes.setOnClickListener {
-            redNotes = binding.redNotes.text.toString()
+        binding.michaelRed1.setOnClickListener {
+            activeAlliance.michaelRed1 = binding.michaelRed1.text.toString()
         }
 
-        var redMichaelTextOne = ""
-        binding.redMichaelTextOne.setOnClickListener {
-            redMichaelTextOne = binding.redMichaelTextOne.text.toString()
+        binding.michaelRed2.setOnClickListener {
+            activeAlliance.michaelRed2 = binding.michaelRed2.text.toString()
         }
 
-        var redMichaelTextTwo = ""
-        binding.redMichaelTextTwo.setOnClickListener {
-            redMichaelTextTwo = binding.redMichaelTextTwo.text.toString()
+        binding.michaelRed3.setOnClickListener {
+            activeAlliance.michaelRed3 = binding.michaelRed3.text.toString()
         }
 
-        var redMichaelTextThree = ""
-        binding.redMichaelTextThree.setOnClickListener {
-            redMichaelTextThree = binding.redMichaelTextThree.text.toString()
-        }
-
-        var redAmpsCount = 0
         binding.redAmpsDec.setOnClickListener {
-            if(redAmpsCount > 0) {
-                redAmpsCount--
+            if(activeAlliance.redAmpCount > 0) {
+                activeAlliance.redAmpCount--
             }
-            binding.redAmps.text = redAmpsCount.toString()
+            binding.redAmps.text = activeAlliance.redAmpCount.toString()
         }
 
         binding.redAmpsInc.setOnClickListener {
-            redAmpsCount++
-            binding.redAmps.text = redAmpsCount.toString()
+            activeAlliance.redAmpCount++
+            binding.redAmps.text = activeAlliance.redAmpCount.toString()
         }
 
-        var redCoOp = false
         binding.redCoOp.setOnClickListener {
-            redCoOp = binding.redCoOp.isChecked
+            activeAlliance.redCoOp = binding.redCoOp.isChecked
         }
 
-        var redMelody = false
         binding.redMelody.setOnClickListener {
-            redMelody = binding.redMelody.isChecked
+            activeAlliance.redMelody = binding.redMelody.isChecked
         }
 
-        var redEnsamble = false
         binding.redEnsamble.setOnClickListener {
-            redEnsamble = binding.redEnsamble.isChecked
+            activeAlliance.redEnsamble = binding.redEnsamble.isChecked
         }
 
-        var redHarmony = false
         binding.redHarmony.setOnClickListener {
-            redHarmony = binding.redHarmony.isChecked
+            activeAlliance.redHarmony = binding.redHarmony.isChecked
         }
 
-        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        activeAlliance.scoutName = sharedPref.getString("scout_name", "Scout").toString()
+        activeAlliance.regionalCode = sharedPref.getString("regional_code","Regional").toString()
+        activeAlliance.matchNumber = sharedPref.getInt("match_number", -1)
         binding.allianceSubmit.setOnClickListener {
-            val alliance = Alliance(
-                0,
-                blueNotes = blueNotes,
-                blueAmpsCount = blueAmpsCount,
-                blueCoOp = blueCoOp,
-                blueMelody = blueMelody,
-                blueEnsamble = blueEnsamble,
-                blueHarmony = blueHarmony,
-                redNotes = redNotes,
-                redAmpsCount = redAmpsCount,
-                redCoOp = redCoOp,
-                redMelody = redMelody,
-                redEnsamble = redEnsamble,
-                redHarmony = redHarmony,
-                matchNumber = sharedPref.getInt("match_number", 0),
-                scoutName = sharedPref.getString("scout_name", "Scout").toString(),
-                regionalCode = "missouri",
-                michaelTextOne = michaelTextOne,
-                michaelTextTwo = michaelTextTwo,
-                michaelTextThree = michaelTextThree,
-                redMichaelTextOne = redMichaelTextOne,
-                redMichaelTextTwo = redMichaelTextTwo,
-                redMichaelTextThree = redMichaelTextThree,
-            )
-            database?.allianceDAO()?.insert(alliance)
+            database?.allianceDAO()?.insert(activeAlliance)
+            activeAlliance = newAlliance
         }
         return root
     }
