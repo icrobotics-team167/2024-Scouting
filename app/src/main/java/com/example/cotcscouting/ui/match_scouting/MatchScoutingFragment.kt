@@ -193,8 +193,8 @@ class MatchScoutingFragment : Fragment()  {
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.matchDAO()?.insert(match)
-            matchNumber++
-            sharedPref.edit().putInt("match_number", matchNumber).apply()
+
+
             binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
             clearFields()
         }
