@@ -25,6 +25,7 @@ data class Match(
     @ColumnInfo(name = "defense") val defense: Boolean?,
     @ColumnInfo(name = "shooting_distance_bar") val shootingDistanceBar: Int?,
     @ColumnInfo(name = "match_number") val matchNumber: Int,
+    @ColumnInfo(name = "match_notes") val matchNotes: String,
     @ColumnInfo(name = "team_number") val teamNumber: Int,
     @ColumnInfo(name = "scout_name") val scoutName: String,
     @ColumnInfo(name= "regional_code") val regionalCode: String

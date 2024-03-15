@@ -35,8 +35,9 @@ class MatchScoutingFragment : Fragment()  {
     private var shootingDistanceBar = 0
     private var teamNumber = 0
     private var matchNumber = 0
+    private var matchNotes = ""
     private var scoutName = "Scout"
-    private var regionalCode = "missouri"
+    private var regionalCode = "Iowa"
     private var scoutingAssignment = "red 1"
 
     override fun onCreateView(
@@ -159,12 +160,20 @@ class MatchScoutingFragment : Fragment()  {
                 teamNumber = Integer.parseInt(teamEditable.text.toString())
             }
         }
+
+        binding.matchNotes?.setOnClickListener {
+            val teamEditable = binding.matchNotes
+            if (teamEditable != null) {
+                matchNotes = teamEditable.text.toString()
+            }
+        }
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         scoutName = sharedPref.getString("scout_name", "Scout").toString()
         scoutingAssignment = sharedPref.getString("scout_assignment", "Red 1").toString()
         binding.scoutName?.text = scoutName
         binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
         binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
+        binding.matchNotes?.setText(matchNotes, TextView.BufferType.EDITABLE)
         binding.scoutAssignment?.text = scoutingAssignment
         binding.submit?.setOnClickListener {
             val match = Match(
@@ -188,6 +197,7 @@ class MatchScoutingFragment : Fragment()  {
                 shootingDistanceBar = shootingDistanceBar,
                 teamNumber = teamNumber,
                 matchNumber = matchNumber,
+                matchNotes = matchNotes,
                 scoutName = scoutName,
                 regionalCode = regionalCode
             )
