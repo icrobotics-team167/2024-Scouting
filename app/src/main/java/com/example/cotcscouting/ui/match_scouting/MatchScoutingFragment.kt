@@ -16,29 +16,31 @@ import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
 class MatchScoutingFragment : Fragment()  {
 
     private var _binding: FragmentMatchScoutingBinding? = null
+    private val newMatch = Match(
+        uid = 0,
+        autoAmpCount= 0,
+        autoSpeakerCount= 0,
+        teleopAmpCount= 0,
+        teleOpSpeakerCount= 0,
+        leave= false,
+        onStage= false,
+        onStageSpotlit= false,
+        trapNote= 0,
+        park= false,
+        defense= false,
+        disabledRobot= false,
+        shootingDistanceBar= 0,
+        teamNumber= 0,
+        matchNumber= 0,
+        matchNotes= "",
+        scoutName= "",
+        regionalCode= "iowa",
+    )
+    private var activeMatch = newMatch.copy()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    private var autoAmpCount = 0
-    private var autoSpeakerCount = 0
-    private var teleopAmpCount = 0
-    private var teleOpSpeakerCount = 0
-    private var ampSpeakerCount = 0
-    private var leave = false
-    private var onStage = false
-    private var onStageSpotlit = false
-    private var trapNote = 0
-    private var park = false
-    private var rings = BooleanArray(5)
-    private var defense = false
-    private var shootingDistanceBar = 0
-    private var teamNumber = 0
-    private var matchNumber = 0
-    private var matchNotes = ""
-    private var scoutName = "Scout"
-    private var regionalCode = "Iowa"
-    private var scoutingAssignment = "red 1"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,65 +61,65 @@ class MatchScoutingFragment : Fragment()  {
         }
 
         binding.autoAmpDec?.setOnClickListener {
-            if(autoAmpCount > 0) {
-                autoAmpCount--
+            if(activeMatch.autoAmpCount > 0) {
+                activeMatch.autoAmpCount--
             }
-            binding.ampNoteAuto?.text = autoAmpCount.toString()
+            binding.ampNoteAuto?.text = activeMatch.autoAmpCount.toString()
         }
 
         binding.autoAmpInc?.setOnClickListener {
-            autoAmpCount++
-            binding.ampNoteAuto?.text = autoAmpCount.toString()
+            activeMatch.autoAmpCount++
+            binding.ampNoteAuto?.text = activeMatch.autoAmpCount.toString()
         }
 
         binding.autoSpeakerDec?.setOnClickListener {
-            if(autoSpeakerCount > 0) {
-                autoSpeakerCount--
+            if(activeMatch.autoSpeakerCount > 0) {
+                activeMatch.autoSpeakerCount--
             }
-            binding.speakerNoteAuto?.text = autoSpeakerCount.toString()
+            binding.speakerNoteAuto?.text = activeMatch.autoSpeakerCount.toString()
         }
 
         binding.autoSpeakerInc?.setOnClickListener {
-            autoSpeakerCount++
-            binding.speakerNoteAuto?.text = autoSpeakerCount.toString()
+            activeMatch.autoSpeakerCount++
+            binding.speakerNoteAuto?.text = activeMatch.autoSpeakerCount.toString()
         }
 
         binding.teleOpAmpDec?.setOnClickListener {
-            if(teleopAmpCount > 0) {
-                teleopAmpCount--
+            if(activeMatch.teleopAmpCount > 0) {
+                activeMatch.teleopAmpCount--
             }
-            binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
+            binding.ampNoteTeleOp?.text = activeMatch.teleopAmpCount.toString()
         }
 
         binding.teleOpAmpInc?.setOnClickListener {
-            teleopAmpCount++
-            binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
+            activeMatch.teleopAmpCount++
+            binding.ampNoteTeleOp?.text = activeMatch.teleopAmpCount.toString()
         }
         binding.teleOpSpeakerDec?.setOnClickListener {
-            if(teleOpSpeakerCount > 0) {
-                teleOpSpeakerCount--
+            if(activeMatch.teleOpSpeakerCount > 0) {
+                activeMatch.teleOpSpeakerCount--
             }
-            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+            binding.teleOpSpeaker?.text = activeMatch.teleOpSpeakerCount.toString()
         }
 
         binding.teleOpSpeakerInc?.setOnClickListener {
-            teleOpSpeakerCount++
-            binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
+            activeMatch.teleOpSpeakerCount++
+            binding.teleOpSpeaker?.text = activeMatch.teleOpSpeakerCount.toString()
         }
 
         binding.leave?.setOnClickListener {
-            leave = binding.leave?.isChecked == true
+            activeMatch.leave = binding.leave?.isChecked == true
         }
         binding.onStage?.setOnClickListener {
-            onStage = binding.onStage?.isChecked == true
+            activeMatch.onStage = binding.onStage?.isChecked == true
         }
 
         binding.onStageSpotlit?.setOnClickListener {
-            onStageSpotlit = binding.onStageSpotlit?.isChecked == true
+            activeMatch.onStageSpotlit = binding.onStageSpotlit?.isChecked == true
         }
 
         binding.trapNote?.setOnClickListener {
-            trapNote = if (binding.trapNote?.isChecked == true) {
+            activeMatch.trapNote = if (binding.trapNote?.isChecked == true) {
                 1
             } else {
                 0
@@ -125,91 +127,44 @@ class MatchScoutingFragment : Fragment()  {
         }
 
         binding.park?.setOnClickListener {
-            park = binding.park?.isChecked == true
+            activeMatch.park = binding.park?.isChecked == true
         }
 
         binding.defense?.setOnClickListener {
-            defense = binding.defense?.isChecked == true
+            activeMatch.defense = binding.defense?.isChecked == true
         }
 
-        binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        binding.disabledRobot?.setOnClickListener {
+            activeMatch.disabledRobot = binding.disabledRobot?.isChecked == true
+        }
+
+            binding.shootingDistanceBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                // here, you react to the value being set in seekBar
-                shootingDistanceBar = progress
+                activeMatch.shootingDistanceBar = progress
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
 
-        binding.matchNumber?.setOnClickListener {
-            val matchEditable = binding.matchNumber
-            if (matchEditable != null) {
-                matchNumber = Integer.parseInt(matchEditable.text.toString())
-            }
-        }
-
-        binding.teamNumber?.setOnClickListener {
-            val teamEditable = binding.teamNumber
-            if (teamEditable != null) {
-                teamNumber = Integer.parseInt(teamEditable.text.toString())
-            }
-        }
-
-        binding.matchNotes?.setOnClickListener {
-            val teamEditable = binding.matchNotes
-            if (teamEditable != null) {
-                matchNotes = teamEditable.text.toString()
-            }
-        }
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        scoutName = sharedPref.getString("scout_name", "Scout").toString()
-        scoutingAssignment = sharedPref.getString("scout_assignment", "Red 1").toString()
-        binding.scoutName?.text = scoutName
-        binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
-        binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
-        binding.matchNotes?.setText(matchNotes, TextView.BufferType.EDITABLE)
-        binding.scoutAssignment?.text = scoutingAssignment
+        binding.scoutName?.text = sharedPref.getString("scout_name", "Scout").toString()
+        binding.scoutAssignment?.text = sharedPref.getString("scout_assignment", "Red 1").toString()
         binding.submit?.setOnClickListener {
-            val match = Match(
-                0,
-                autoAmpCount = autoAmpCount,
-                autoSpeakerCount = autoSpeakerCount,
-                teleopAmpCount = teleopAmpCount,
-                teleOpSpeakerCount = teleOpSpeakerCount,
-                ampSpeakerCount = ampSpeakerCount,
-                leave = leave,
-                onStage = onStage,
-                onStageSpotlit = onStageSpotlit,
-                trapNote = trapNote,
-                park = park,
-                ring1 = rings[0],
-                ring2 = rings[1],
-                ring3 = rings[2],
-                ring4 = rings[3],
-                ring5 = rings[4],
-                defense = defense,
-                shootingDistanceBar = shootingDistanceBar,
-                teamNumber = teamNumber,
-                matchNumber = matchNumber,
-                matchNotes = matchNotes,
-                scoutName = scoutName,
-                regionalCode = regionalCode
-            )
+
+            activeMatch.teamNumber = Integer.parseInt(binding.teamNumber?.text.toString())
+            activeMatch.matchNumber = Integer.parseInt(binding.matchNumber?.text.toString())
+            activeMatch.matchNotes = binding.matchNotes?.text.toString()
+            activeMatch.scoutName = sharedPref.getString("scout_name", "Scout").toString()
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
-            database?.matchDAO()?.insert(match)
-
-
-            binding.matchNumber?.setText(matchNumber.toString(), TextView.BufferType.EDITABLE)
+            database?.matchDAO()?.insert(activeMatch)
+            activeMatch = newMatch.copy()
             clearFields()
         }
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -217,28 +172,20 @@ class MatchScoutingFragment : Fragment()  {
     }
 
     private fun clearFields() {
-        autoAmpCount = 0
-        binding.ampNoteAuto?.text = autoAmpCount.toString()
-        autoSpeakerCount = 0
-        binding.speakerNoteAuto?.text = autoSpeakerCount.toString()
-        teleopAmpCount = 0
-        binding.ampNoteTeleOp?.text = teleopAmpCount.toString()
-        teleOpSpeakerCount = 0
-        binding.teleOpSpeaker?.text = teleOpSpeakerCount.toString()
-        ampSpeakerCount = 0
-        leave = false
+        binding.ampNoteAuto?.text = activeMatch.autoAmpCount.toString()
+        binding.speakerNoteAuto?.text = activeMatch.autoSpeakerCount.toString()
+        binding.ampNoteTeleOp?.text = activeMatch.teleopAmpCount.toString()
+        binding.teleOpSpeaker?.text = activeMatch.teleOpSpeakerCount.toString()
         binding.leave?.isChecked = false
-        onStage = false
         binding.onStage?.isChecked = false
-        onStageSpotlit = false
         binding.onStageSpotlit?.isChecked = false
-        trapNote = 0
         binding.trapNote?.isChecked = false
-        park = false
         binding.park?.isChecked = false
-        rings = BooleanArray(5)
-        defense = false
-        shootingDistanceBar = 1
+        binding.defense?.isChecked = false
+        binding.disabledRobot?.isChecked = false
         binding.shootingDistanceBar?.progress = 0
+        binding.matchNotes?.setText("", TextView.BufferType.EDITABLE)
+        binding.teamNumber?.setText("", TextView.BufferType.EDITABLE)
+        binding.matchNumber?.setText("", TextView.BufferType.EDITABLE)
     }
 }
