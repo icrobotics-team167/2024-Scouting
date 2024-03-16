@@ -21,7 +21,7 @@
     <string name="harmony">Harmony</string>
     <string name="_18_15_co_op_notes">18(15 co-op) Notes</string>
     <string name="_10_stage_points_2_onstage_robot">10 Stage Points 2 Onstage Robot</string>
-    <string name="_2_robot_same_chain">2 Robot Same Chain</string>
+    <string name="harmony_desc">2 Robot Same Chain</string>
     <string name="dec_button">-</string>
     <string name="inc_button">+</string>
     <string name="submit">Submit</string>
@@ -116,4 +116,7 @@
     <string name="top_ranked_team">Top Ranked Team:</string>
     <string name="mid_ranked_team">Mid-Ranked Team:</string>
     <string name="bottom_ranked_team">Bottom Ranked Team:</string>
+    <string name="ensamble_desc">10 Stage points 2 OnStage robots</string>
+    <string name="melody_desc">18 (15 Co-Op) Notes scored</string>
+    <string name="co_op_desc">Pressed yellow button</string>
 </resources>

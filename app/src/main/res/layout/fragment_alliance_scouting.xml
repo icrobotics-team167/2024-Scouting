@@ -103,25 +103,25 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/co_op_desc" />
                 <TextView
                     android:id="@+id/blue_melody_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/melody_desc" />
                 <TextView
                     android:id="@+id/blue_ensamble_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/ensamble_desc" />
                 <TextView
                     android:id="@+id/blue_harmony_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/harmony_desc" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -293,25 +293,25 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/co_op_desc" />
                 <TextView
                     android:id="@+id/red_melody_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/melody_desc" />
                 <TextView
                     android:id="@+id/red_ensamble_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/ensamble_desc" />
                 <TextView
                     android:id="@+id/red_harmony_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/_2_robot_same_chain" />
+                    android:text="@string/harmony_desc" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
