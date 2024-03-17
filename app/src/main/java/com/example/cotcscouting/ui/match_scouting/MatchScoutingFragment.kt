@@ -12,7 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
+import org.json.JSONArray
+import org.json.JSONObject
 import java.net.URL
+import java.util.StringTokenizer
 
 class MatchScoutingFragment : Fragment()  {
 
@@ -39,6 +42,9 @@ class MatchScoutingFragment : Fragment()  {
     private var scoutName = "Scout"
     private var regionalCode = "missouri"
     private var scoutingAssignment = "red 1"
+
+    val blueAllianceURL = "https://www.thebluealliance.com/api/v3/match/2023iacf_qm"
+    val blueAllianceAuthKey = "?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -147,14 +153,34 @@ class MatchScoutingFragment : Fragment()  {
             }
         })
 
-        val blueAllianceURL = URL("https://www.thebluealliance.com/api/v3/event/2023iacf/matches?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w")
-        blueAllianceURL.openStream()
 
         binding.matchNumber?.setOnClickListener {
             val matchEditable = binding.matchNumber
             if (matchEditable != null) {
                 matchNumber = Integer.parseInt(matchEditable.text.toString())
             }
+
+            val getTeam = Thread() {
+                try {
+                    val st = StringTokenizer(scoutingAssignment)
+                    val allianceColor = st.nextToken().lowercase()
+                    val allianceNum = Integer.parseInt(st.nextToken())
+
+                    val matchData = JSONObject(URL(blueAllianceURL + matchNumber + blueAllianceAuthKey).readText())
+                    teamNumber = Integer.parseInt(
+                        (((((matchData.get("alliances") as JSONObject)
+                            .get(allianceColor) as JSONObject)
+                            .get("team_keys")) as JSONArray)
+                            .get(allianceNum - 1) as String)
+                            .substring(3))
+
+                    binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
+                } catch(e : Exception) {
+                    println("Cannot automatically update the team number")
+                }
+            }
+
+            getTeam.start()
         }
 
         binding.teamNumber?.setOnClickListener {
@@ -235,4 +261,5 @@ class MatchScoutingFragment : Fragment()  {
         shootingDistanceBar = 1
         binding.shootingDistanceBar?.progress = 0
     }
+
 }
