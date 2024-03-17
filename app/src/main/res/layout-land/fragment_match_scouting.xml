@@ -462,7 +462,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/matchNotes"
+                    android:id="@+id/match_notes"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
