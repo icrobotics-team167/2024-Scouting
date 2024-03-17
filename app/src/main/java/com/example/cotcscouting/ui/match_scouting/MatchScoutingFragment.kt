@@ -43,8 +43,8 @@ class MatchScoutingFragment : Fragment()  {
     private var regionalCode = "missouri"
     private var scoutingAssignment = "red 1"
 
-    val blueAllianceURL = "https://www.thebluealliance.com/api/v3/match/2023iacf_qm"
-    val blueAllianceAuthKey = "?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w"
+    private val blueAllianceURL = "https://www.thebluealliance.com/api/v3/match/2023iacf_qm"
+    private val blueAllianceAuthKey = "?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w"
 
     override fun onCreateView(
         inflater: LayoutInflater,
