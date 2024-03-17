@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.databinding.FragmentBlueAllianceBinding
-import java.net.URL
 
 class BlueAllianceFragment : Fragment() {
 
@@ -33,9 +32,7 @@ class BlueAllianceFragment : Fragment() {
         blueAllianceViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-
-        val URL = URL("https://www.thebluealliance.com/api/v3/event/2024")
-
+        
         return root
     }
 

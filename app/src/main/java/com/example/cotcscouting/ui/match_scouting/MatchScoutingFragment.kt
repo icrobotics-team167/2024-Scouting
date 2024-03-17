@@ -12,6 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
+import org.json.JSONArray
+import org.json.JSONObject
+import java.net.URL
+import java.util.StringTokenizer
 
 class MatchScoutingFragment : Fragment()  {
 
@@ -41,6 +45,10 @@ class MatchScoutingFragment : Fragment()  {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    //TODO: Update the event key
+    private val blueAllianceURL = "https://www.thebluealliance.com/api/v3/match/2023iacf_qm"
+    private val blueAllianceAuthKey = "?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -148,6 +156,42 @@ class MatchScoutingFragment : Fragment()  {
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
 
+        binding.matchNumber?.setOnClickListener {
+            val matchEditable = binding.matchNumber
+            if (matchEditable != null) {
+                matchNumber = Integer.parseInt(matchEditable.text.toString())
+            }
+
+            val getTeam = Thread() {
+                try {
+                    val st = StringTokenizer(scoutingAssignment)
+                    val allianceColor = st.nextToken().lowercase()
+                    val allianceNum = Integer.parseInt(st.nextToken())
+
+                    val matchData = JSONObject(URL(blueAllianceURL + matchNumber + blueAllianceAuthKey).readText())
+                    teamNumber = Integer.parseInt(
+                        (((((matchData.get("alliances") as JSONObject)
+                            .get(allianceColor) as JSONObject)
+                            .get("team_keys")) as JSONArray)
+                            .get(allianceNum - 1) as String)
+                            .substring(3))
+
+                    binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
+                } catch(e : Exception) {
+                    println("Cannot automatically update the team number")
+                }
+            }
+
+            getTeam.start()
+        }
+
+        binding.teamNumber?.setOnClickListener {
+            val teamEditable = binding.teamNumber
+            if (teamEditable != null) {
+                teamNumber = Integer.parseInt(teamEditable.text.toString())
+            }
+        }
+
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.scoutName?.text = sharedPref.getString("scout_name", "Scout").toString()
         binding.scoutAssignment?.text = sharedPref.getString("scout_assignment", "Red 1").toString()
@@ -188,4 +232,5 @@ class MatchScoutingFragment : Fragment()  {
         binding.teamNumber?.setText("", TextView.BufferType.EDITABLE)
         binding.matchNumber?.setText("", TextView.BufferType.EDITABLE)
     }
+
 }
