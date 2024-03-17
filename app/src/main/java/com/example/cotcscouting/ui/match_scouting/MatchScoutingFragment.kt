@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.data.model.Match
 import com.example.cotcscouting.databinding.FragmentMatchScoutingBinding
+import java.net.URL
 
 class MatchScoutingFragment : Fragment()  {
 
@@ -145,6 +146,9 @@ class MatchScoutingFragment : Fragment()  {
                 // you can probably leave this empty
             }
         })
+
+        val blueAllianceURL = URL("https://www.thebluealliance.com/api/v3/event/2023iacf/matches?X-TBA-Auth-Key=9wSxnqP56MMgj6T8SsoQVOprfnX4uGp1YHGq7GLUYv8fmLXk0PYOqEeSR6QRtv3w")
+        blueAllianceURL.openStream()
 
         binding.matchNumber?.setOnClickListener {
             val matchEditable = binding.matchNumber
