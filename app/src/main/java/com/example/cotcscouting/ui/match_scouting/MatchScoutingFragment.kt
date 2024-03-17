@@ -68,6 +68,10 @@ class MatchScoutingFragment : Fragment()  {
             }
         }
 
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        binding.scoutName?.text = sharedPref.getString("scout_name", "Scout").toString()
+        binding.scoutAssignment?.text = sharedPref.getString("scout_assignment", "Red 1").toString()
+
         binding.autoAmpDec?.setOnClickListener {
             if(activeMatch.autoAmpCount > 0) {
                 activeMatch.autoAmpCount--
@@ -159,24 +163,24 @@ class MatchScoutingFragment : Fragment()  {
         binding.matchNumber?.setOnClickListener {
             val matchEditable = binding.matchNumber
             if (matchEditable != null) {
-                matchNumber = Integer.parseInt(matchEditable.text.toString())
+                activeMatch.matchNumber = Integer.parseInt(matchEditable.text.toString())
             }
 
             val getTeam = Thread() {
                 try {
-                    val st = StringTokenizer(scoutingAssignment)
+                    val st = StringTokenizer(binding.scoutAssignment?.text.toString())
                     val allianceColor = st.nextToken().lowercase()
                     val allianceNum = Integer.parseInt(st.nextToken())
 
-                    val matchData = JSONObject(URL(blueAllianceURL + matchNumber + blueAllianceAuthKey).readText())
-                    teamNumber = Integer.parseInt(
+                    val matchData = JSONObject(URL(blueAllianceURL + activeMatch.matchNumber + blueAllianceAuthKey).readText())
+                    activeMatch.teamNumber = Integer.parseInt(
                         (((((matchData.get("alliances") as JSONObject)
                             .get(allianceColor) as JSONObject)
                             .get("team_keys")) as JSONArray)
                             .get(allianceNum - 1) as String)
                             .substring(3))
 
-                    binding.teamNumber?.setText(teamNumber.toString(), TextView.BufferType.EDITABLE)
+                    binding.teamNumber?.setText(activeMatch.teamNumber.toString(), TextView.BufferType.EDITABLE)
                 } catch(e : Exception) {
                     println("Cannot automatically update the team number")
                 }
@@ -188,13 +192,10 @@ class MatchScoutingFragment : Fragment()  {
         binding.teamNumber?.setOnClickListener {
             val teamEditable = binding.teamNumber
             if (teamEditable != null) {
-                teamNumber = Integer.parseInt(teamEditable.text.toString())
+                activeMatch.teamNumber = Integer.parseInt(teamEditable.text.toString())
             }
         }
 
-        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        binding.scoutName?.text = sharedPref.getString("scout_name", "Scout").toString()
-        binding.scoutAssignment?.text = sharedPref.getString("scout_assignment", "Red 1").toString()
         binding.submit?.setOnClickListener {
 
             activeMatch.teamNumber = Integer.parseInt(binding.teamNumber?.text.toString())
