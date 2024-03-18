@@ -1,43 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
-        android:background="#FAFAD2"
-        android:contentDescription="@string/app_name"
-        android:scaleType="center" />
-
+    android:layout_height="match_parent">
     <EditText
         android:id="@+id/username"
-        android:layout_width="585dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:autofillHints="@string/username"
         android:hint="@string/username"
-        android:inputType="text"
-        android:textColorHint="#A1887F"
-        android:textSize="40sp" />
-
+        android:inputType="text"/>
     <EditText
         android:id="@+id/assigned_scout"
-        android:layout_width="582dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:autofillHints="@string/assigned_scout"
         android:hint="@string/assigned_scout"
-        android:inputType="text"
-        android:textColorHint="#A1887F"
-        android:textSize="40sp" />
-
-
-
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/tablet_number"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:autofillHints="@string/tablet_number"
+        android:hint="@string/tablet_number"
+        android:inputType="number" />
 </LinearLayout>

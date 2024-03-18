@@ -21,7 +21,7 @@ class LoginFragment : DialogFragment() {
             _binding = FragmentLoginBinding.inflate(inflater)
             val root: ViewGroup = binding.root
             builder.setTitle("Login to Start Scouting")
-            builder.setView(inflater.inflate(R.layout.fragment_login, root))
+            builder.setView(root)
                 .setPositiveButton("Login") { _, _ ->
                     val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
                     val editor = sharedPref.edit()
