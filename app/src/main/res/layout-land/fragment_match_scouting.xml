@@ -279,20 +279,6 @@
                     android:layout_weight="7.5"
                     android:text="@string/on_stage_spotlit"
                     tools:ignore="VisualLintButtonSize" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/trap_note"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7.5"
-                    android:text="@string/trap_note"
-                    tools:ignore="VisualLintButtonSize" />
 
                 <TextView
                     android:id="@+id/spotlit_desc"
@@ -304,7 +290,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7.5" />
+
+                <CheckBox
+                    android:id="@+id/trap_note"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7.5"
+                    android:text="@string/trap_note"
+                    tools:ignore="VisualLintButtonSize" />
 
                 <CheckBox
                     android:id="@+id/park"
@@ -313,6 +313,18 @@
                     android:layout_weight="7.5"
                     android:text="@string/parked"
                     tools:ignore="VisualLintButtonSize" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7.5" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             </LinearLayout>
 
             <LinearLayout
