@@ -34,8 +34,8 @@ class MatchScoutingFragment : Fragment()  {
         defense= false,
         disabledRobot= false,
         shootingDistanceBar= 0,
-        teamNumber= 0,
-        matchNumber= 0,
+        teamNumber= "",
+        matchNumber= "",
         matchNotes= "",
         scoutName= "",
         regionalCode= "iowa",
@@ -162,8 +162,8 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.matchNumber?.setOnClickListener {
             val matchEditable = binding.matchNumber
-            if (matchEditable != null && matchEditable.text.toString() != "") {
-                activeMatch.matchNumber = Integer.parseInt(matchEditable.text.toString())
+            if (matchEditable != null) {
+                activeMatch.matchNumber = matchEditable.text.toString()
             }
 
             val getTeam = Thread {
@@ -173,12 +173,11 @@ class MatchScoutingFragment : Fragment()  {
                     val allianceNum = Integer.parseInt(st.nextToken())
 
                     val matchData = JSONObject(URL(blueAllianceURL + activeMatch.matchNumber + blueAllianceAuthKey).readText())
-                    activeMatch.teamNumber = Integer.parseInt(
-                        (((((matchData.get("alliances") as JSONObject)
+                    activeMatch.teamNumber = (((((matchData.get("alliances") as JSONObject)
                             .get(allianceColor) as JSONObject)
                             .get("team_keys")) as JSONArray)
                             .get(allianceNum - 1) as String)
-                            .substring(3))
+                            .substring(3)
 
                     binding.teamNumber?.setText(activeMatch.teamNumber.toString(), TextView.BufferType.EDITABLE)
                 } catch(e : Exception) {
@@ -191,15 +190,15 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.teamNumber?.setOnClickListener {
             val teamEditable = binding.teamNumber
-            if (teamEditable != null && teamEditable.text.toString() != "") {
-                activeMatch.teamNumber = Integer.parseInt(teamEditable.text.toString())
+            if (teamEditable != null) {
+                activeMatch.teamNumber = teamEditable.text.toString()
             }
         }
 
         binding.submit?.setOnClickListener {
 
-            activeMatch.teamNumber = Integer.parseInt(binding.teamNumber?.text.toString())
-            activeMatch.matchNumber = Integer.parseInt(binding.matchNumber?.text.toString())
+            activeMatch.teamNumber = binding.teamNumber?.text.toString()
+            activeMatch.matchNumber = binding.matchNumber?.text.toString()
             activeMatch.matchNotes = binding.matchNotes?.text.toString()
             activeMatch.scoutName = sharedPref.getString("scout_name", "Scout").toString()
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }

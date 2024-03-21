@@ -19,9 +19,9 @@ data class Match(
     @ColumnInfo(name = "defense") var defense: Boolean,
     @ColumnInfo(name = "disabled_robot") var disabledRobot: Boolean,
     @ColumnInfo(name = "shooting_distance_bar") var shootingDistanceBar: Int,
-    @ColumnInfo(name = "match_number") var matchNumber: Int,
+    @ColumnInfo(name = "match_number") var matchNumber: String,
     @ColumnInfo(name = "match_notes") var matchNotes: String,
-    @ColumnInfo(name = "team_number") var teamNumber: Int,
+    @ColumnInfo(name = "team_number") var teamNumber: String,
     @ColumnInfo(name = "scout_name") var scoutName: String,
     @ColumnInfo(name= "regional_code") var regionalCode: String
 )

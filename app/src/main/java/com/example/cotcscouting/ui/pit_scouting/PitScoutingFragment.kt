@@ -40,8 +40,6 @@ class PitScoutingFragment : Fragment() {
             }
         }
 
-        resetFields()
-
         val startingAreaOptions = ArrayList<CheckBox?>()
         startingAreaOptions.add(binding.left)
         startingAreaOptions.add(binding.right)
@@ -69,31 +67,31 @@ class PitScoutingFragment : Fragment() {
         binding.submit?.setOnClickListener {
             val pit = Pit(
                 0,
-                teamNumber = Integer.decode(binding.teamNameAnswer?.text.toString()),
+                teamNumber = binding.teamNameAnswer?.text.toString(),
                 scoutName = sharedPref.getString("scout_name", "Scout").toString(),
                 driveCoachName = binding.coachAnswer?.text.toString(),
                 driveBase = binding.driveBaseAnswer?.text.toString(),
                 rookieTeam = binding.rookieTeam?.isChecked,
-                howManyAutos = Integer.decode(binding.autoCountNumber?.text.toString()),
+                howManyAutos = binding.autoCountNumber?.text.toString(),
                 hasAuto = binding.hasAuto?.isChecked,
                 doesPreload = binding.doesPreload?.isChecked,
                 doesShoot = binding.doesShoot?.isChecked,
                 doesIntake = binding.doesIntake?.isChecked,
                 whereDoYouStart = checkCheckBoxes(binding.doesMatter, startingAreaOptions),
                 whereDoYouScore = checkCheckBoxes(binding.ampAndSpeaker, scoreAreaOptions),
-                notesScoreCount = Integer.decode(binding.scoreCountAuto?.text.toString()),
+                notesScoreCount = binding.scoreCountAuto?.text.toString(),
                 gameStrategy = binding.gameStrategyAnswer?.text.toString(),
                 intake = checkCheckBoxes(binding.groundAndSource, intakeOptions),
                 farthestShot = checkCheckBoxes(binding.wooferPodiumAndWing, farthestShotOptions),
                 doesClimb = binding.canClimb?.isChecked,
-                climbTime = Integer.decode(binding.climbTimeAnswer?.text.toString()),
+                climbTime = binding.climbTimeAnswer?.text.toString(),
                 canHarmony = binding.canGetHarmony?.isChecked,
                 canScoreTrap = binding.canScoreTrap?.isChecked
             )
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.pitDAO()?.insert(pit)
 
-            resetFields()
+            clearFields()
         }
 
         println(Integer.decode("0"))
@@ -173,7 +171,7 @@ class PitScoutingFragment : Fragment() {
         return answer.toString()
     }
 
-    private fun resetFields() {
+    private fun clearFields() {
         binding.teamNameAnswer?.setText("0")
         binding.coachAnswer?.setText("")
         binding.driveBaseAnswer?.setText("")
