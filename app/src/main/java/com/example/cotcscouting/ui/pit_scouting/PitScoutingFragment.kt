@@ -40,6 +40,8 @@ class PitScoutingFragment : Fragment() {
             }
         }
 
+        resetFields()
+
         val startingAreaOptions = ArrayList<CheckBox?>()
         startingAreaOptions.add(binding.left)
         startingAreaOptions.add(binding.right)
@@ -91,26 +93,10 @@ class PitScoutingFragment : Fragment() {
             val database = context?.let { it1 -> AppDatabase.getDatabase(it1) }
             database?.pitDAO()?.insert(pit)
 
-            binding.teamNameAnswer?.setText("0")
-            binding.coachAnswer?.setText("")
-            binding.driveBaseAnswer?.setText("")
-            binding.rookieTeam?.isChecked = false
-            binding.autoCountNumber?.setText("0")
-            binding.hasAuto?.isChecked = false
-            binding.doesPreload?.isChecked = false
-            binding.doesShoot?.isChecked = false
-            binding.doesIntake?.isChecked = false
-            binding.doesMatter?.isChecked = false
-            binding.ampAndSpeaker?.isChecked = false
-            binding.scoreCountAuto?.setText("0")
-            binding.gameStrategyAnswer?.setText("")
-            binding.groundAndSource?.isChecked = false
-            binding.wooferPodiumAndWing?.isChecked = false
-            binding.canClimb?.isChecked = false
-            binding.climbTimeAnswer?.setText("0")
-            binding.canGetHarmony?.isChecked = false
-            binding.canScoreTrap?.isChecked = false
+            resetFields()
         }
+
+        println(Integer.decode("0"))
 
         return root
     }
@@ -185,6 +171,28 @@ class PitScoutingFragment : Fragment() {
         }
 
         return answer.toString()
+    }
+
+    private fun resetFields() {
+        binding.teamNameAnswer?.setText("0")
+        binding.coachAnswer?.setText("")
+        binding.driveBaseAnswer?.setText("")
+        binding.rookieTeam?.isChecked = false
+        binding.autoCountNumber?.setText("0")
+        binding.hasAuto?.isChecked = false
+        binding.doesPreload?.isChecked = false
+        binding.doesShoot?.isChecked = false
+        binding.doesIntake?.isChecked = false
+        binding.doesMatter?.isChecked = false
+        binding.ampAndSpeaker?.isChecked = false
+        binding.scoreCountAuto?.setText("0")
+        binding.gameStrategyAnswer?.setText("")
+        binding.groundAndSource?.isChecked = false
+        binding.wooferPodiumAndWing?.isChecked = false
+        binding.canClimb?.isChecked = false
+        binding.climbTimeAnswer?.setText("0")
+        binding.canGetHarmony?.isChecked = false
+        binding.canScoreTrap?.isChecked = false
     }
 
     // TODO: THIS FUNCTION SHOULDN'T RETURN ANYTHING THAT'S WHAT'S CAUSING THE PROBLEM. MY LOVELY FOCUS LISTENER LIVES ONCE AGAIN!!!!!!!

@@ -162,11 +162,11 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.matchNumber?.setOnClickListener {
             val matchEditable = binding.matchNumber
-            if (matchEditable != null) {
+            if (matchEditable != null && matchEditable.text.toString() != "") {
                 activeMatch.matchNumber = Integer.parseInt(matchEditable.text.toString())
             }
 
-            val getTeam = Thread() {
+            val getTeam = Thread {
                 try {
                     val st = StringTokenizer(binding.scoutAssignment?.text.toString())
                     val allianceColor = st.nextToken().lowercase()
@@ -191,7 +191,7 @@ class MatchScoutingFragment : Fragment()  {
 
         binding.teamNumber?.setOnClickListener {
             val teamEditable = binding.teamNumber
-            if (teamEditable != null) {
+            if (teamEditable != null && teamEditable.text.toString() != "") {
                 activeMatch.teamNumber = Integer.parseInt(teamEditable.text.toString())
             }
         }
