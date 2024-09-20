@@ -120,4 +120,6 @@
     <string name="melody_desc">18 (15 Co-Op) Notes scored</string>
     <string name="co_op_desc">Pressed yellow button</string>
     <string name="tablet_number">Tablet Number</string>
+    <string name="this_is_graphing_testing">This is Graphing Testing!</string>
+    <string name="graphing_testing">Graphing Testing</string>
 </resources>

@@ -27,4 +27,10 @@
         android:name="com.example.cotcscouting.ui.alliance_scouting.AllianceScoutingFragment"
         android:label="@string/title_alliance_scouting"
         tools:layout="@layout/fragment_alliance_scouting" />
+
+    <fragment
+        android:id="@+id/navigation_graphing_testing"
+        android:name="com.example.cotcscouting.ui.graphing_testing.GraphingTestingFragment"
+        android:label="@string/graphing_testing"
+        tools:layout="@layout/fragment_graphing_testing" />
 </navigation>

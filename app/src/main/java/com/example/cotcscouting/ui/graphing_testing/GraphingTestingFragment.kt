@@ -1,18 +1,16 @@
-package com.example.cotcscouting.ui.pit_scouting
+package com.example.cotcscouting.ui.graphing_testing
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.cotcscouting.databinding.FragmentPitScoutingBinding
+import com.example.cotcscouting.databinding.FragmentGraphingTestingBinding
 
-class PitScoutingFragment : Fragment() {
-
-    private var _binding: FragmentPitScoutingBinding? = null
+class GraphingTestingFragment : Fragment() {
+    private var _binding: FragmentGraphingTestingBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,20 +21,18 @@ class PitScoutingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val pitScoutingViewModel =
-            ViewModelProvider(this)[PitScoutingViewModel::class.java]
+        val graphingTestingBinding =
+            ViewModelProvider(this)[GraphingTestingViewModel::class.java]
 
-        _binding = FragmentPitScoutingBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        _binding = FragmentGraphingTestingBinding.inflate(inflater, container, false)
 
-        val textView: TextView? = binding.textDashboard
-        pitScoutingViewModel.text.observe(viewLifecycleOwner) {
+        val textView : TextView? = binding.textHome
+        graphingTestingBinding.text.observe(viewLifecycleOwner) {
             if(textView != null) {
                 textView.text = it
             }
         }
-
-        return root
+        return binding.root
     }
     override fun onDestroyView() {
         super.onDestroyView()
