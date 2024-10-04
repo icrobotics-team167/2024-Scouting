@@ -122,4 +122,5 @@
     <string name="tablet_number">Tablet Number</string>
     <string name="this_is_graphing_testing">This is Graphing Testing!</string>
     <string name="graphing_testing">Graphing Testing</string>
+    <string name="button">Button</string>
 </resources>
