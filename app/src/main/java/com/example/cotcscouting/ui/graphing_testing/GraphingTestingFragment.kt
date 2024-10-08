@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.cotcscouting.databinding.FragmentGraphingTestingBinding
 import kotlin.math.ceil
+import kotlin.math.floor
 import kotlin.math.roundToInt
 
 class GraphingTestingFragment : Fragment() {
@@ -46,22 +47,24 @@ class GraphingTestingFragment : Fragment() {
         _binding = null
     }
 
-    // Won't work with odds but rn I just want to test that I know how to create buttons.
+    // May or may not work android studio emulator isn't scaling correctly so I can't really tell but it didn't crash the second time.
     fun createOptions(names : Array<String>, layout : TableLayout) {
-        val max = ceil(names.size/2.0).roundToInt()
-        println(names.size)
-        println(max)
+        val max = floor(names.size / 2.0).toInt()
 
-        for(element in names) {
+        for(i in 0..max) {
             val tableRow = TableRow(this.context)
-            createOption(element, tableRow)
+
+            val button = Button(this.context)
+            button.text = names[i + i]
+            tableRow.addView(button)
+
+            if(i + i + 1 < names.size - 1) {
+                val button2 = Button(this.context)
+                button2.text = names[i + i + 1]
+                tableRow.addView(button2)
+            }
+
             layout.addView(tableRow)
         }
-    }
-
-    fun createOption(name : String, row : TableRow) {
-        val button = Button(this.context)
-        button.text = name
-        row.addView(button)
     }
 }
