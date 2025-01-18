@@ -31,7 +31,7 @@ class PitScoutingFragment : Fragment() {
 
         val textView: TextView? = binding.textDashboard
         pitScoutingViewModel.text.observe(viewLifecycleOwner) {
-            if(textView != null) {
+            if (textView != null) {
                 textView.text = it
             }
         }

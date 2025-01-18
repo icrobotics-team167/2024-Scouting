@@ -10,6 +10,7 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.cotcscouting.data.model.AppDatabase
 import com.example.cotcscouting.databinding.FragmentGraphingTestingBinding
 import kotlin.math.ceil
 import kotlin.math.roundToInt
@@ -37,6 +38,11 @@ class GraphingTestingFragment : Fragment() {
                 textView.text = it
             }
         }
+
+        val data = AppDatabase.getDatabase(requireContext())
+        val pit = data.pitDAO()
+
+        println(pit.getAll())
         val list = arrayOf("B1", "B2", "B3")
         createOptions(list, binding.tableLayout!!) // Might want to get rid of the assertion idk
         return binding.root
@@ -46,22 +52,15 @@ class GraphingTestingFragment : Fragment() {
         _binding = null
     }
 
-    // Won't work with odds but rn I just want to test that I know how to create buttons.
-    fun createOptions(names : Array<String>, layout : TableLayout) {
+    private fun createOptions(names : Array<String>, layout : TableLayout) {
         val max = ceil(names.size/2.0).roundToInt()
-        println(names.size)
-        println(max)
 
         for(element in names) {
             val tableRow = TableRow(this.context)
-            createOption(element, tableRow)
+            val button = Button(this.context)
+            button.text = element
+            tableRow.addView(button)
             layout.addView(tableRow)
         }
-    }
-
-    fun createOption(name : String, row : TableRow) {
-        val button = Button(this.context)
-        button.text = name
-        row.addView(button)
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TiltledTextBox">
+        <attr name="title" format="string" />
+        <attr name="answer" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="TitledCounter">
+        <attr name="title" format="string"/>
+        <attr name="count" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TitledCheckBox">
+        <attr name="title" format="string"/>
+        <attr name="count" format="boolean"/>
+    </declare-styleable>
+</resources>
